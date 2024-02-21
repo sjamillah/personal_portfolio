@@ -1,0 +1,762 @@
+:root {
+    --bg-color-dark: #121113;
+    --primary-color: #5140ea;
+    --bg-color-light: #f4f2f3;
+    --secondary-color: #FFF1D0;
+    --heading-color: #30343F;
+    --transition: 0.5s;
+    --paragraph-font-color: #1E1E24;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-color: var(--bg-color-light);
+    font-family: Poppins, sans-serif;
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+/*The navigation bar*/
+.header {
+    font-size: 1.25rem;
+}
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+   }
+   .navigation {
+    flex: 1;
+    text-align: right;
+   }
+   nav h1 {
+       color: #FB8B24;
+       font-size: 1.75rem;
+       font-family: 'Courier New', Courier, monospace;
+       display: inline-flex;
+       float: left;
+   }
+   nav a {
+       color: var(--primary-color);
+       transition: var(--transition);
+       padding: 0;
+       left: 0;
+       text-decoration: none;
+   }
+   nav a:hover {
+       color: #58193a;
+       border-bottom: 1px solid #5D2E46;
+   }
+   nav ul {
+       list-style: none;
+   }
+   nav ul li {
+       font-weight: 20px;
+       justify-content: space-evenly;
+       display: inline-block;
+   }
+   nav ul li a {
+       padding: 10px 20px;
+   }
+.list {
+    color: var(--primary-color);
+    font-size: 2rem;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+.navigation .list {
+    display: none;
+}
+
+
+/*The introduction*/
+.start {
+    background-image: url(images/IMG_3967.JPG);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+.introduction {
+    width: 30rem;
+    border-radius: 6px;
+    box-shadow: transparent;
+    margin-left: 62%;
+    overflow: hidden;
+    margin-top: 40px;
+    word-spacing: 0px;
+}
+.introduction h2 {
+    color: #716e1d;
+    margin-bottom: 0;
+    font-size: 30px;
+    padding-bottom: 0;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+}
+.introduction h1 {
+    color: #FAFAFF;
+    font-size: 4.5rem;
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-family: Gill Sans, sans-serif;
+    font-weight: 800;
+
+}
+.introduction p {
+    color: var(--secondary-color);
+    font-size: 1.75rem;
+    text-align: left;
+    line-height: 2rem;
+    padding: 0.1rem 0;
+}
+/*My resume/cv button*/
+.resume {
+    background: linear-gradient(to right, #BD2D87, #070457, #8bcd90);
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+    border-radius: 20px;
+    border: 1.75px solid #0E1428;
+    padding: 20px;
+    line-height: 17px;
+    font-weight: 100px;
+    font-size: 1.25rem;
+    font-family: Georgia, sans-serif;
+    cursor: pointer;
+}
+.resume:hover {
+    background: linear-gradient(to left, blue, red, orange);
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0;
+    border: 2px solid #F18805;
+}
+.resume a {
+    text-decoration: none;
+    color: #0D1F2D;
+}
+/*about in index*/
+.main {
+    background-color: #c3cbd6;
+    padding: 20px;
+    height: 600px;
+}
+.aboutme {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 40%;
+    margin-left: 150px;
+}
+.aboutme h1 {
+    text-align: left;
+    font-size: 3.5rem;
+    color: var(--heading-color);
+}
+.aboutme p {
+    font-size: 1.5rem;
+    color: var(--paragraph-font-color);
+}
+.knowme {
+    background-color: #dce1e8;
+    padding: 20px;
+    height: 600px;
+    align-items: center;
+    padding-left: 150px;
+}
+.know {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 40%;
+   
+}
+.know h1 {
+    text-align: left;
+    font-size: 3.5rem;
+    color: var(--heading-color);
+}
+.know p {
+    font-size: 1.5rem;
+    color: var(--paragraph-font-color);
+    text-align: left;
+}
+.knowbtn {
+    background: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+    border-radius: 10px;
+    border: 1.75px solid #0E1428;
+    padding: 20px;
+    line-height: 17px;
+    font-weight: 100px;
+    font-size: 1.25rem;
+    font-family: Georgia, sans-serif;
+    cursor: pointer;
+}
+.knowbtn:hover {
+    background: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0;
+    border: 2px solid #F18805;
+}
+.knowbtn a {
+    text-decoration: none;
+    color: #0D1F2D;
+}
+.aboutbtn {
+    background: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+    border-radius: 10px;
+    border: 1.75px solid #0E1428;
+    padding: 20px;
+    line-height: 17px;
+    font-weight: 100px;
+    font-size: 1.25rem;
+    font-family: Georgia, sans-serif;
+    cursor: pointer;
+}
+.aboutbtn:hover {
+    background: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0;
+    border: 2px solid #F18805;
+}
+.aboutbtn a {
+    text-decoration: none;
+    color: #0D1F2D;
+}
+.abtimg {
+    width: 450px;
+    height: 450px;
+    margin: 3em;
+    position: relative;
+}
+.abtimg:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    border: transparent;
+    box-sizing: border-box;
+}
+.abtimg img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    top: -35%;
+    right: -250%;
+    transform: translate(-50%, -50%);
+    padding: 2px;
+    box-sizing: border-box;  
+}
+.abtimg img.landscape {
+    max-width: none;
+}
+.abtimg img.portrait {
+    max-height: none;
+}
+/*image in about section*/
+.image {
+    width: 600px;
+    height: 600px;
+    margin: 3em;
+    position: relative;
+}
+.image:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    border: transparent;
+    box-sizing: border-box;
+}
+.image img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    top: -75%;
+    right: -200%;
+    transform: translate(-50%, -50%);
+    padding: 2px;
+    box-sizing: border-box;
+}
+.image img.landscape {
+    max-width: none;
+}
+.image img.portrait {
+    max-height: none;
+}
+/*Social media handles*/
+footer {
+    display: block;
+    justify-content: space-around;
+    position: relative;
+    text-align: center;
+    padding: 3px;
+    padding-right: 60px ;
+    background-color: #f4f8fc;
+  }
+.socials {
+  display: inline-flex;
+  justify-content: space-around;
+  position: relative;
+  text-align: center;
+  bottom: 0;
+}
+.socials a {
+    margin-left: 50px;
+    padding-top: 5px;
+    align-items: center;
+}
+.socials img {
+    padding: 0.5rem;
+}
+.footer-copyright {
+    bottom: 0;
+    position: relative;
+    text-align: center;
+    font-weight: 100;
+    font-family: Poppins, sans-serif;
+}
+.footer-copyright p {
+    color: #121113;
+    font-size: 1rem;
+}
+/*About section*/
+.rem {
+    background-color: #c3cbd6;
+    padding: 10px;
+    padding-top: 60px;
+    padding-bottom: -100%;
+}
+.about {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 40%;
+    margin-left: 110px;
+}
+.about h1 {
+    text-align: left;
+    font-size: 3.5rem;
+    color: var(--heading-color);
+}
+.about p {
+    font-size: 1.5rem;
+    color: var(--paragraph-font-color);
+}
+.quote h1{
+    font-size: 60px;
+    color: var(--secondary-color);
+    text-align: center;
+    width: 50rem;
+    font-weight: 800;
+    padding-top: 150px;
+}
+/*Skills section*/
+.ss {
+    background-image: url(images/IMG_6345.JPG);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    position: relative; 
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: #c3cbd6;
+    padding: 90px;
+    justify-content: space-evenly;
+}
+.skills {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    max-width: 68.75rem;
+    margin: 0px;
+    margin-left: 45px;
+    background-color: #679dad;
+    border: 2px solid rgba(6, 67, 78, 0.2);
+    border-radius: 5%;
+}
+.skills h1 {
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+    font-size: 3.5rem;
+    text-align: center;
+    padding-right: 150px;
+    margin: 3.5rem;
+}
+.one_skills img{
+    padding: 1.25rem;
+    width: 100px;
+    height: 100px;
+}
+.two_skills img {
+    padding: 1.25rem;
+    width: 100px;
+    height: 100px;
+}
+.softskills {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--paragraph-font-color);
+    margin: 0;
+    font-size: 1.75rem;
+    padding-left: 50px;
+    background-color: #679dad;
+    border: 2px solid rgba(6, 67, 78, 0.2);
+    border-radius: 5%;
+}
+.softskills h1 {
+    text-align: center;
+    color: var(--heading-color);
+    font-size: 3.5rem;
+}
+.progress-bar {
+    margin-top: 10px;
+  }
+  
+  .skill {
+    margin-bottom: 10px;
+  }
+  
+  .skill span {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+    margin-left: 0px;
+  }
+  
+  .skill-bar {
+    height: 15px;
+    background-color: #3B429F;
+  }
+  
+  .skill-bar span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background-color: #B81365;
+  }
+  .column {
+    background-color: #dce1e8;
+    padding: 90px;
+  }
+  .projects {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: var(--paragraph-font-color);
+    display: block;
+    font-size: 1.75rem;
+    max-width: 500px;
+    background-color: #679dad;
+    border: 2px solid rgba(6, 67, 78, 0.2);
+    border-radius: 5%;
+    padding: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 500px;
+    margin-top: 80px;
+}
+.projects h1 {
+    text-align: center;
+    color: var(--heading-color);
+    font-size: 3.5rem;
+}
+.projects p {
+    font-size: 1.5rem;
+    color: var(--paragraph-font-color);
+    text-align: justify;
+    width: 90%;
+    padding-left: 20px;
+}
+/*Contact section*/
+.dom {
+    background-image: url(images/IMG_5610.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    position: relative; 
+}
+.connect {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 60%;
+    margin-left: 30px;
+}
+h1 {
+    text-align: left;
+    font-size: 2.5rem;
+    color: var(--heading-color);
+    padding: 1px;
+}
+p {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
+.contact ul li {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    list-style: none;
+    padding: 2px;
+}
+.form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 30px;
+}
+
+/* Style inputs, select elements and textareas */
+input[type=text], select, textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+/* Style the label to display next to the inputs */
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+/* Style the submit button */
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+.submit {
+    background: #2F52E0;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+    border-radius: 40px;
+    border: 1.75px solid #0E1428;
+    padding: 20px;
+    line-height: 17px;
+    font-weight: 100px;
+    font-size: 1.25rem;
+    font-family: Georgia, sans-serif;
+    cursor: pointer;
+    position: relative;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.submit:hover {
+    background: #30362F;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #ff0;
+    border: 2px solid #F18805;
+}
+.submit:after {
+    content: "";
+    display: table;
+    clear: both;  
+}
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    [type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+
+/* Updated CSS for responsive navigation bar*/
+/* For mobile devices*/
+@media screen and (max-width: 600px) {
+    .navigation {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--bg-color-light);
+        z-index: 1;
+        padding-top: 3.5rem; 
+    }
+
+    .navigation.responsive {
+        display: flex;
+    }
+
+    .navigation.responsive ul {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 2rem; 
+    }
+
+    .navigation.responsive li {
+        margin-bottom: 1rem; 
+    }
+
+    .navigation.responsive a {
+        text-align: left;
+        font-size: 1.5rem; 
+    }
+
+    .navigation.responsive a.list {
+        position: absolute;
+        top: 1rem; 
+        right: 1rem; 
+    }
+}
+
+/* For tablet and larger screens*/ 
+@media screen and (min-width: 601px) {
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navigation ul {
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navigation li {
+        margin-right: 1.5rem; 
+    }
+
+    .navigation a {
+        text-decoration: none;
+        color: var(--primary-color);
+        transition: color var(--transition);
+        font-size: 1.25rem;
+    }
+
+    .navigation a:hover {
+        color: #58193a;
+        border-bottom: 1px solid #5D2E46;
+    }
+
+    .navigation .list {
+        display: none;
+    }
+}
+@media screen and (max-width: 768px) {
+    /* Adjust background size and position for tablets*/ 
+    .start,  .ss, .dom {
+      background-attachment: scroll;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    /* Adjust background size and position for mobile phones*/
+    .start, .ss, .dom {
+      background-attachment: scroll;
+    }
+  }
+
+  /* Desktop styles */
+/* Add your existing CSS styles here */
+
+/* Tablet styles */
+@media screen and (max-width: 992px) {
+    .introduction {
+      width: 80%;
+      margin-left: 10%;
+    }
+    .about {
+      width: 80%;
+      margin-left: 10%;
+    }
+    .skills {
+      width: 80%;
+      margin-left: 10%;
+    }
+    .connect {
+      width: 80%;
+      margin-left: 10%;
+    }
+  }
+  
+  /* Mobile styles */
+  @media screen and (max-width: 600px) {
+    nav {
+      flex-direction: column;
+      align-items: center;
+    }
+    .navigation {
+      text-align: center;
+    }
+    nav h1 {
+      float: none;
+      margin-bottom: 20px;
+    }
+    nav ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+    }
+    nav ul li {
+      margin-bottom: 10px;
+    }
+    .list {
+      display: block;
+    }
+    .header {
+      position: relative;
+    }
+    .navigation.responsive {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--bg-color-dark);
+      z-index: 1;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.2s ease-out;
+    }
+    .navigation.responsive a {
+      float: none;
+      text-align: center;
+      padding: 10px;
+      display: block;
+    }
+    .navigation.responsive a:hover {
+      background-color: #ddd;
+    }
+    .navigation.responsive .list {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .header .list i {
+      margin-left: 20px;
+    }
+    .image {
+      width: 100%;
+      height: auto;
+      margin: 0;
+    }
+    .about,
+    .skills,
+    .connect {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+
+  
