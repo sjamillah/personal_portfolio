@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="This is my personal website." />
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="personalweb.css" />
+  </head>
+
+  <body>
+    <header class="start">
+      <section class="header">
+        <nav>
+          <div class="navigation">
+            <h1>
+              <em>JAMILLAH .S</em>
+            </h1>
+            <ul>
+              <li><a href="personalweb.html">HOME</a></li>
+              <li><a href="about.html">ABOUT ME</a></li>
+              <li><a href="skills.html">SKILLS & PROJECTS</a></li>
+              <li><a href="contact.html">CONNECT WITH ME</a></li>
+            </ul>
+          </div>
+          <button class="list" id="listing">
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+          </button>
+        </nav>
+      </section>
+
+      <section>
+        <div class="quote">
+          <h1>
+            I'M A PASSIONATE SOFTWARE ENGINEER WHO IS OPEN TO NEW CHALLENGES.
+          </h1>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="rem">
+        <div class="about">
+          <h1>WHO AM I?</h1>
+          <p>
+            I'm SSOZI Jamillah, and my love for technology began when I was just
+            a curious kid, fascinated by the glow of computer screens and the
+            thrill of coding. I spent hours tinkering with computers, amazed by
+            the endless things they could do. Each time I pressed a key, it felt
+            like I was opening a door to a world where anything was possible.
+          </p>
+          <p>
+            Now, I'm a student at African Leadership University (ALU) in Kigali,
+            Rwanda, studying Software Engineering. Here, surrounded by the
+            bustling energy of campus life, I'm on a mission to learn all about
+            data science and full-stack web development. From the moment I
+            arrived at ALU, I knew I was in for an incredible adventure. With
+            determination in my heart and a passion for technology driving me
+            forward, I threw myself into my studies. I've learned so much—from
+            mastering Python and Java to exploring HTML, CSS, and more. Each
+            lesson has been like a stepping stone, bringing me closer to my
+            dream of becoming a tech expert. But my journey doesn't end in the
+            classroom.
+          </p>
+          <p>
+            Outside of my studies, I'm always exploring new things. Whether it's
+            diving into the world of data science, experimenting with cooking,
+            or getting lost in a good book, I'm always eager to learn and grow.
+          </p>
+          <p>
+            Still here?
+            <a href="contact.html"
+              ><span style="color: #1e1e24">Connect with me </span></a
+            >and let's start this adventure together!
+          </p>
+        </div>
+        <div class="image">
+          <img src="images/IMG_5605.png" alt="profilepic" />
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/jamillah-ssozi-08b4871a1/">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg"
+            alt="linkedin"
+            width="30"
+            height="30"
+          />
+        </a>
+        <a href="https://github.com/sjamillah">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+            alt="github"
+            width="30"
+            height="30"
+          />
+        </a>
+        <a href="https://twitter.com/Jammy1442">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/twitter/twitter-original.svg"
+            alt="twitter"
+            width="30"
+            height="30"
+          />
+        </a>
+        <a href="https://www.instagram.com/_____lynn___ozi/"><img src="" /></a>
+      </div>
+      <div class="footer-copyright">
+        <p>Copyright ©2024 Jamillah SSOZI. <br />Designed by JAMILLAH.</p>
+      </div>
+    </footer>
+
+    <script>
+      var images = document.querySelectorAll(".image img");
+      for (var i = 0, len = images.length; i < len; i++) {
+        images[i].addEventListener("load", function () {
+          this.className +=
+            this.width > this.height ? " landscape" : " portrait";
+        });
+      }
+    </script>
+  </body>
+</html>
+
