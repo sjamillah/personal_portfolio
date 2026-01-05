@@ -358,18 +358,9 @@ class PortfolioUI {
         try {
             const profile = await this.api.getUserProfile();
             
-            // Update profile image if element exists
-            const profileImg = document.querySelector('.header-content .image img');
-            if (profileImg && profile.avatar_url) {
-                // Keep existing image, but we could update it if needed
-                // profileImg.src = profile.avatar_url;
-            }
-            
-            // Update bio if different
-            const bioElement = document.querySelector('.right-header p');
-            if (bioElement && profile.bio) {
-                // Keep existing bio as it's more detailed
-            }
+            // Profile data is available but keeping existing content
+            // as it's more detailed. Could be enhanced in future to show
+            // avatar_url or other profile information if needed.
         } catch (error) {
             console.error('Error loading profile info:', error);
         }

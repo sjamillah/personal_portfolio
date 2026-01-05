@@ -14,6 +14,19 @@ class GitHubAPI {
     async fetchWithCache(url) {
         try {
             const response = await fetch(url);
+            
+            // Check for rate limiting
+            if (response.status === 403 || response.status === 429) {
+                const remaining = response.headers.get('X-RateLimit-Remaining');
+                const resetTime = response.headers.get('X-RateLimit-Reset');
+                console.warn('GitHub API rate limit reached. Remaining:', remaining);
+                if (resetTime) {
+                    const resetDate = new Date(resetTime * 1000);
+                    console.warn('Rate limit resets at:', resetDate.toLocaleString());
+                }
+                throw new Error('API rate limit exceeded');
+            }
+            
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

@@ -1637,6 +1637,31 @@ html {
   animation: pulse 2s infinite;
 }
 
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .stat-icon i {
+    animation: none;
+  }
+  
+  .skeleton-card {
+    animation: none;
+  }
+  
+  .language-progress {
+    animation: none;
+  }
+  
+  .progress-bar .progress span {
+    animation: none;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Light Mode Adjustments for New Components */
 .light-mode .skeleton-card {
   background: linear-gradient(
