@@ -3,6 +3,94 @@ class PortfolioUI {
     constructor(githubAPI) {
         this.api = githubAPI;
         this.loadingStates = new Set();
+        this.fallbackEnabled = false;
+    }
+
+    // Fallback data for when GitHub API is unavailable
+    getFallbackRepos() {
+        return [
+            {
+                id: 1,
+                name: 'Coursera-NestJS-Course',
+                description: 'This is a nestjs course on coursera',
+                html_url: 'https://github.com/sjamillah/Coursera-NestJS-Course',
+                homepage: null,
+                language: 'TypeScript',
+                stargazers_count: 0,
+                forks_count: 0,
+                updated_at: '2025-12-22T01:18:01Z',
+                topics: ['nestjs', 'backend', 'typescript']
+            },
+            {
+                id: 2,
+                name: 'Blogs-App',
+                description: 'This is a blogs full-stack application with beginner backend logic.',
+                html_url: 'https://github.com/sjamillah/Blogs-App',
+                homepage: null,
+                language: 'JavaScript',
+                stargazers_count: 0,
+                forks_count: 0,
+                updated_at: '2025-09-18T11:02:20Z',
+                topics: ['fullstack', 'blog', 'javascript']
+            },
+            {
+                id: 3,
+                name: 'Calculator-App',
+                description: 'This is a repository for a calculator application.',
+                html_url: 'https://github.com/sjamillah/Calculator-App',
+                homepage: null,
+                language: 'TypeScript',
+                stargazers_count: 0,
+                forks_count: 0,
+                updated_at: '2025-07-22T10:57:07Z',
+                topics: ['calculator', 'react', 'typescript']
+            },
+            {
+                id: 4,
+                name: 'Medical_Q-A_Chatbot',
+                description: 'This is a medical question and answering chatbot repository.',
+                html_url: 'https://github.com/sjamillah/Medical_Q-A_Chatbot',
+                homepage: null,
+                language: 'Jupyter Notebook',
+                stargazers_count: 0,
+                forks_count: 0,
+                updated_at: '2025-06-24T17:18:30Z',
+                topics: ['ai', 'chatbot', 'medical']
+            },
+            {
+                id: 5,
+                name: 'Air_Quality_Forecasting_Model',
+                description: 'This is an air quality forecasting model',
+                html_url: 'https://github.com/sjamillah/Air_Quality_Forecasting_Model',
+                homepage: null,
+                language: 'Jupyter Notebook',
+                stargazers_count: 0,
+                forks_count: 0,
+                updated_at: '2025-05-28T02:19:54Z',
+                topics: ['machine-learning', 'forecasting', 'python']
+            },
+            {
+                id: 6,
+                name: 'Cardio-Vascular_Pipeline',
+                description: 'This is a pipeline for detecting cardio vascular diseases in rural areas.',
+                html_url: 'https://github.com/sjamillah/Cardio-Vascular_Pipeline',
+                homepage: null,
+                language: 'Jupyter Notebook',
+                stargazers_count: 0,
+                forks_count: 0,
+                updated_at: '2025-04-03T23:53:56Z',
+                topics: ['healthcare', 'ml', 'python']
+            }
+        ];
+    }
+
+    getFallbackStats() {
+        return {
+            totalRepos: 64,
+            totalStars: 8,
+            totalForks: 3,
+            followers: 12
+        };
     }
 
     showLoading(container) {
@@ -123,7 +211,15 @@ class PortfolioUI {
 
         try {
             this.showLoading(container);
-            const stats = await this.api.getContributionStats();
+            let stats;
+            
+            try {
+                stats = await this.api.getContributionStats();
+            } catch (error) {
+                console.log('Using fallback stats data');
+                stats = this.getFallbackStats();
+                this.fallbackEnabled = true;
+            }
             
             container.innerHTML = `
                 ${this.createStatCard('fas fa-folder', stats.totalRepos, 'Repositories', 'Public repositories')}
@@ -133,7 +229,14 @@ class PortfolioUI {
             `;
         } catch (error) {
             console.error('Error rendering GitHub stats:', error);
-            container.innerHTML = '<p class="error-message">Unable to load GitHub statistics</p>';
+            // Use fallback stats as last resort
+            const stats = this.getFallbackStats();
+            container.innerHTML = `
+                ${this.createStatCard('fas fa-folder', stats.totalRepos, 'Repositories', 'Public repositories')}
+                ${this.createStatCard('fas fa-star', stats.totalStars, 'Total Stars', 'Stars received')}
+                ${this.createStatCard('fas fa-code-branch', stats.totalForks, 'Forks', 'Repository forks')}
+                ${this.createStatCard('fas fa-users', stats.followers, 'Followers', 'GitHub followers')}
+            `;
         }
     }
 
@@ -143,13 +246,23 @@ class PortfolioUI {
 
         try {
             this.showLoading(container);
-            const repos = await this.api.getFeaturedRepositories(6);
+            let repos;
+            
+            try {
+                repos = await this.api.getFeaturedRepositories(6);
+            } catch (error) {
+                console.log('Using fallback repos data');
+                repos = this.getFallbackRepos().slice(0, 6);
+                this.fallbackEnabled = true;
+            }
             
             container.innerHTML = repos.map(repo => this.createRepoCard(repo)).join('');
             this.hideLoading(container);
         } catch (error) {
             console.error('Error rendering featured repos:', error);
-            container.innerHTML = '<p class="error-message">Unable to load featured repositories</p>';
+            // Use fallback as last resort
+            const repos = this.getFallbackRepos().slice(0, 6);
+            container.innerHTML = repos.map(repo => this.createRepoCard(repo)).join('');
         }
     }
 
@@ -159,20 +272,30 @@ class PortfolioUI {
 
         try {
             this.showLoading(container);
-            const allRepos = await this.api.getRepositories({ excludeForked: true });
-            const featuredRepos = await this.api.getFeaturedRepositories(6);
-            const featuredIds = new Set(featuredRepos.map(r => r.id));
+            let otherRepos;
             
-            // Filter out featured repos and get next 9
-            const otherRepos = allRepos
-                .filter(repo => !featuredIds.has(repo.id))
-                .slice(0, 9);
+            try {
+                const allRepos = await this.api.getRepositories({ excludeForked: true });
+                const featuredRepos = await this.api.getFeaturedRepositories(6);
+                const featuredIds = new Set(featuredRepos.map(r => r.id));
+                
+                // Filter out featured repos and get next 9
+                otherRepos = allRepos
+                    .filter(repo => !featuredIds.has(repo.id))
+                    .slice(0, 9);
+            } catch (error) {
+                console.log('Using fallback repos data for more projects');
+                otherRepos = this.getFallbackRepos();
+                this.fallbackEnabled = true;
+            }
             
             container.innerHTML = otherRepos.map(repo => this.createRepoCard(repo)).join('');
             this.hideLoading(container);
         } catch (error) {
             console.error('Error rendering repos:', error);
-            container.innerHTML = '<p class="error-message">Unable to load repositories</p>';
+            // Use fallback as last resort
+            const otherRepos = this.getFallbackRepos();
+            container.innerHTML = otherRepos.map(repo => this.createRepoCard(repo)).join('');
         }
     }
 
@@ -181,7 +304,26 @@ class PortfolioUI {
         if (!container) return;
 
         try {
-            const languages = await this.api.getLanguageStats();
+            let languages;
+            
+            try {
+                languages = await this.api.getLanguageStats();
+            } catch (error) {
+                console.log('Using fallback language stats');
+                // Fallback language data
+                languages = {
+                    'JavaScript': 18,
+                    'TypeScript': 8,
+                    'Python': 12,
+                    'Jupyter Notebook': 10,
+                    'HTML': 6,
+                    'Dart': 2,
+                    'CSS': 3,
+                    'Go': 1
+                };
+                this.fallbackEnabled = true;
+            }
+            
             const entries = Object.entries(languages);
             const total = entries.reduce((sum, [, count]) => sum + count, 0);
             
@@ -207,6 +349,8 @@ class PortfolioUI {
             `;
         } catch (error) {
             console.error('Error rendering language stats:', error);
+            // Provide minimal fallback
+            container.innerHTML = '<p class="error-message">Language statistics will be available soon</p>';
         }
     }
 
