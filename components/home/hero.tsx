@@ -10,31 +10,29 @@ export function Hero() {
     <section id="home" aria-labelledby="home-title">
       <div className="bg-paper-sunk">
         <div className="shell grid gap-x-12 pt-10 sm:pt-14 md:grid-cols-12 lg:pt-16">
-          <div className="flex flex-col pb-12 md:col-span-7 md:pb-16 lg:pb-20">
-            <div>
-              <p className="font-serif text-3xl leading-none tracking-tight text-ink sm:text-[2.5rem]">{profile.name}</p>
-              <p className="mt-3 flex flex-wrap items-center gap-x-2 text-[0.9375rem] text-ink-soft">
-                <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
+          <div className="flex flex-col justify-center pb-12 md:col-span-7 md:pb-16 lg:pb-20">
+            <p className="flex items-center gap-2.5 text-[0.9375rem] text-ink-soft">
+              <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
+              <span>
                 <span className="font-medium text-ink">{role}</span>
-                <span aria-hidden="true" className="text-line-strong">/</span>
-                <span>{focus}</span>
-                <span aria-hidden="true" className="text-line-strong">/</span>
-                <span>{profile.location}</span>
-              </p>
-            </div>
-
-            <h1
-              id="home-title"
-              className="mt-14 font-serif text-[clamp(2.75rem,1rem+5vw,5.5rem)] font-medium leading-[0.98] tracking-[-0.025em] text-balance text-ink md:mt-auto md:pt-20"
-            >
-              {profile.headline.lead} <em className="font-normal text-accent">{profile.headline.accent}</em>
-            </h1>
-
-            <p className="mt-7 max-w-xl text-lede text-ink-soft">
-              <span className="text-ink">I&apos;m Jamillah.</span> {profile.intro}
+                <span aria-hidden="true" className="mx-2 text-line-strong">/</span>
+                <span className="sr-only">, </span>
+                {focus}
+              </span>
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
+            <h1 id="home-title" className="mt-8 font-serif text-ink">
+              <span className="block whitespace-nowrap text-[clamp(2.75rem,0.75rem+5.2vw,6rem)] font-medium leading-[0.95] tracking-[-0.03em]">
+                {profile.greeting}
+              </span>
+              <span className="mt-5 block max-w-[22ch] text-[clamp(1.625rem,1.1rem+1.6vw,2.5rem)] font-normal leading-[1.15] tracking-[-0.01em] text-balance">
+                {profile.headline.lead} <em className="text-accent">{profile.headline.accent}</em>
+              </span>
+            </h1>
+
+            <p className="mt-6 max-w-[34rem] text-[1.0625rem] leading-relaxed text-ink-soft">{profile.intro}</p>
+
+            <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
               <a
                 href="#projects"
                 className="group inline-flex h-12 items-center gap-2 rounded-full bg-brand px-6 text-sm font-medium text-on-brand transition-colors hover:bg-brand-hover"
@@ -47,6 +45,8 @@ export function Hero() {
                 <ArrowRight className="transition-transform duration-300 group-hover:translate-x-0.5" />
               </a>
             </div>
+
+            <p className="mt-10 text-sm text-ink-faint">Based in {profile.location}</p>
           </div>
 
           <figure className="self-end md:col-span-5 lg:col-start-8">

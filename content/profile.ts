@@ -4,12 +4,13 @@ export const profile = {
   location: "Kigali, Rwanda",
   email: "ssozijamillah@gmail.com",
   siteUrl: "https://jamillah-ssozi.netlify.app",
+  greeting: "Hi, I’m Jamillah.",
   headline: {
-    lead: "From the database schema",
+    lead: "I build software from the database schema",
     accent: "to the screen reader.",
   },
   intro:
-    "I develop and ship complete web and mobile applications across backend, frontend and cloud, with experience in Python, TypeScript, React, Flutter, Django REST, FastAPI, Node.js, Docker, AWS and machine learning.",
+    "I develop and ship complete web and mobile applications across backend, frontend and cloud, with Python, TypeScript and AWS at the core and machine learning where it earns its place.",
   description:
     "Jamillah Ssozi is a software engineer working across Python backend systems, full-stack web and mobile applications, AI/ML, cloud deployment and accessible product engineering.",
   links: {

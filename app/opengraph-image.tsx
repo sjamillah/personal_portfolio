@@ -34,9 +34,12 @@ export default async function OpengraphImage() {
           <div style={{ width: 12, height: 12, borderRadius: 12, background: brand.accent }} />
           {profile.title.toUpperCase()}
         </div>
-        <div style={{ display: "flex", flexDirection: "column", fontSize: 96, lineHeight: 1.02, letterSpacing: -2.5 }}>
-          <span>{profile.headline.lead}</span>
-          <span style={{ color: brand.light.accent, fontStyle: "italic" }}>{profile.headline.accent}</span>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <span style={{ fontSize: 112, lineHeight: 1, letterSpacing: -3 }}>{profile.greeting}</span>
+          <span style={{ marginTop: 28, fontSize: 48, lineHeight: 1.2, letterSpacing: -0.5 }}>{profile.headline.lead}</span>
+          <span style={{ fontSize: 48, lineHeight: 1.2, letterSpacing: -0.5, color: brand.light.accent, fontStyle: "italic" }}>
+            {profile.headline.accent}
+          </span>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 28, borderTop: `1px solid ${brand.light.line}`, paddingTop: 24 }}>
           <span>{profile.name}</span>
