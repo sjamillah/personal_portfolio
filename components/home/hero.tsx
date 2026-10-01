@@ -73,8 +73,7 @@ export function Hero() {
                   </span>
                   <ArrowUpRight className="mt-1 hidden shrink-0 text-ink-faint transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent sm:block" />
                 </span>
-                <span className="max-w-[26ch] text-sm leading-snug text-ink-soft sm:text-[0.9375rem]">{item.label}</span>
-                <span className="mt-auto pt-1 text-xs text-ink-faint">{item.source}</span>
+                <span className="max-w-[30ch] text-[0.9375rem] leading-snug text-ink-soft sm:text-base">{item.label}</span>
               </a>
             </li>
           ))}

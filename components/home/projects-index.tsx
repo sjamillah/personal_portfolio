@@ -25,7 +25,7 @@ export function ProjectsIndex() {
               >
                 <div className="flex items-start gap-4 sm:gap-6">
                   <span
-                    className={`pt-2 text-[0.8125rem] transition-colors ${
+                    className={`pt-2 text-sm transition-colors ${
                       selected ? "text-ink" : "text-ink-faint"
                     }`}
                   >
@@ -44,8 +44,7 @@ export function ProjectsIndex() {
                         }`}
                       />
                     </div>
-                    <p className="mt-2 text-sm text-ink-faint">{project.kind}</p>
-                    <p className="mt-4 max-w-lg leading-relaxed text-ink-soft">{project.summary}</p>
+                    <p className="mt-3 max-w-lg leading-relaxed text-ink-soft">{project.summary}</p>
 
                     {project.awards && (
                       <ul aria-label="Awards" className="mt-4 space-y-1 text-[0.9375rem] text-ink">

@@ -11,12 +11,8 @@ export function About() {
         id="about-title"
         aside={
           <p>
-            <span className="text-ink">
-              I work across the whole of an application: the data model and the API, the client on top of it, the
-              pipeline that ships it and the cloud it runs on.
-            </span>{" "}
-            Python on the backend is home. TypeScript, React and Flutter are where I go when the work reaches the
-            interface.
+            <span className="text-ink">Python on the backend is home.</span> TypeScript, React and Flutter are where I go
+            when the work reaches the interface. Whatever the layer, the same four habits hold.
           </p>
         }
       >

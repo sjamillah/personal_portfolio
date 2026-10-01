@@ -43,7 +43,7 @@ function Block({ id, index, title, children }: { id: string; index: number; titl
     <section aria-labelledby={`${id}-title`} id={id} className="scroll-mt-24 border-t border-line pt-8">
       <Reveal>
         <h2 id={`${id}-title`} className="flex items-baseline gap-4">
-          <span className="text-[0.8125rem] text-green">{String(index).padStart(2, "0")}</span>
+          <span className="text-sm text-green">{String(index).padStart(2, "0")}</span>
           <span className="font-serif text-4xl tracking-tight sm:text-5xl">{title}</span>
         </h2>
         <div className="mt-6">{children}</div>
@@ -102,11 +102,11 @@ function ProjectHeader({ project }: { project: Project }) {
         <p className="text-lede text-ink-soft lg:col-span-7">{project.tagline}</p>
         <dl className="grid gap-5 text-sm lg:col-span-4 lg:col-start-9">
           <div>
-            <dt className="text-[0.8125rem] text-ink-faint">Focus</dt>
+            <dt className="text-sm text-ink-faint">Focus</dt>
             <dd className="mt-1 text-ink">{project.focus}</dd>
           </div>
           <div>
-            <dt className="text-[0.8125rem] text-ink-faint">Code</dt>
+            <dt className="text-sm text-ink-faint">Code</dt>
             <dd className="mt-1 flex items-center gap-2 text-ink">
               {project.code === "public" ? <Code /> : <Lock />}
               {project.code === "public" ? "Public repository" : "Private repository"}
@@ -114,7 +114,7 @@ function ProjectHeader({ project }: { project: Project }) {
           </div>
           {project.links.length > 0 && (
             <div>
-              <dt className="text-[0.8125rem] text-ink-faint">Links</dt>
+              <dt className="text-sm text-ink-faint">Links</dt>
               <dd className="mt-1">
                 <ul className="space-y-1">
                   {project.links.map((link) => (
@@ -176,7 +176,7 @@ export default async function ProjectPage({ params }: PageProps) {
             <ol className="border-t border-line">
               {project.approach.map((step, index) => (
                 <li key={step.title} className="grid gap-2 border-b border-line py-5 sm:grid-cols-[3rem_14rem_1fr] sm:gap-6">
-                  <span className="text-[0.8125rem] text-ink-faint sm:pt-1">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="text-sm text-ink-faint sm:pt-1">{String(index + 1).padStart(2, "0")}</span>
                   <h3 className="font-medium text-ink">{step.title}</h3>
                   <p className="leading-relaxed text-ink-soft">{step.body}</p>
                 </li>
@@ -200,7 +200,7 @@ export default async function ProjectPage({ params }: PageProps) {
                     <Diagram spec={project.architecture.diagram} className="h-auto w-full" />
                   </div>
                 </div>
-                <figcaption className="mt-3 text-[0.8125rem] text-ink-faint">{project.architecture.diagram.title}</figcaption>
+                <figcaption className="mt-3 text-sm text-ink-faint">{project.architecture.diagram.title}</figcaption>
               </figure>
             )}
             <details className="group mt-8 border-y border-line">
@@ -256,7 +256,7 @@ export default async function ProjectPage({ params }: PageProps) {
             <dl className="border-t border-line">
               {project.technologies.map((group) => (
                 <div key={group.label} className="grid gap-3 border-b border-line py-5 sm:grid-cols-[14rem_1fr] sm:gap-6">
-                  <dt className="text-[0.8125rem] text-ink-faint sm:pt-1.5">{group.label}</dt>
+                  <dt className="text-sm text-ink-faint sm:pt-1.5">{group.label}</dt>
                   <dd>
                     <ul className="flex flex-wrap gap-y-1 text-ink">
                       {group.items.map((item, index) => (

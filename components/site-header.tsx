@@ -158,7 +158,7 @@ export function SiteHeader() {
                   className="flex items-baseline justify-between py-4"
                 >
                   <span className="font-serif text-4xl tracking-tight">{item.label}</span>
-                  <span className="text-[0.8125rem] text-green">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="text-sm text-green">{String(index + 1).padStart(2, "0")}</span>
                 </a>
               </li>
             ))}

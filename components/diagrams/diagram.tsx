@@ -116,7 +116,7 @@ export function Diagram({ spec, highlight, className, decorative = false }: Diag
 export function DiagramFlows({ spec }: { spec: DiagramSpec }) {
   const names = new Map(spec.nodes.map((node) => [node.id, node.label]));
   return (
-    <ol className="grid gap-x-8 gap-y-2 font-mono text-xs text-ink-soft sm:grid-cols-2">
+    <ol className="grid gap-x-8 text-sm text-ink-soft sm:grid-cols-2">
       {spec.edges.map((edge) => (
         <li key={edge.id} className="flex flex-wrap items-baseline gap-x-2 border-b border-line py-2">
           <span className="text-ink">{names.get(edge.from)}</span>

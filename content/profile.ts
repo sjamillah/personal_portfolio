@@ -33,25 +33,25 @@ export const navigation = [
 export const proof = [
   {
     value: "55/58",
-    label: "Accessibility issues resolved on the ARMS app",
+    label: "Accessibility issues resolved on the ARMS app at AmaliTech",
     source: "AmaliTech",
     href: "/#experience",
   },
   {
     value: "95.4%",
-    label: "Accuracy classifying candidate skillsets to job roles",
+    label: "Accuracy classifying candidate skillsets to job roles at ThinkGreen Afrika",
     source: "ThinkGreen Afrika",
     href: "/#experience",
   },
   {
     value: "137+",
-    label: "Automated tests across the Aureynx platform",
+    label: "Automated tests across the Aureynx conservation platform",
     source: "Aureynx",
     href: "/projects/aureynx",
   },
   {
     value: "2nd · 3rd",
-    label: "Hackathon placements for clinical microscopy AI",
+    label: "Hackathon placements for clinical microscopy AI, at Codextreme 2025 and HSIL 2026",
     source: "Codextreme 2025 · HSIL 2026",
     href: "/projects/clinical-microscopy",
   },
@@ -60,7 +60,7 @@ export const proof = [
 export const principles = [
   {
     title: "Own the whole path",
-    body: "From the schema to the deployment, so decisions in one layer are made knowing what the next one needs.",
+    body: "Decisions in one layer are made knowing what the next one needs, whether that is an API shape, a schema or a deploy step.",
   },
   {
     title: "Tests are part of the design",

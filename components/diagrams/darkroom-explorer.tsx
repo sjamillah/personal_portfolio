@@ -89,7 +89,7 @@ export function DarkroomExplorer() {
                   selected ? "border-accent text-ink" : "border-transparent text-ink-faint hover:text-ink lg:border-line"
                 }`}
               >
-                <span className="text-[0.8125rem]">0{index + 1}</span>
+                <span className="text-sm">0{index + 1}</span>
                 {view.label}
               </button>
             );
@@ -126,7 +126,7 @@ export function DarkroomExplorer() {
             <Diagram spec={darkroomDiagram} highlight={active.highlight} className="h-auto w-full" />
           </div>
         </div>
-        <figcaption className="mt-3 text-[0.8125rem] text-ink-faint">
+        <figcaption className="mt-3 text-sm text-ink-faint">
           Darkroom on AWS. Select a view to trace one path through the system.
         </figcaption>
       </figure>
