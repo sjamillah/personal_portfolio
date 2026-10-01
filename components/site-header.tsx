@@ -78,7 +78,7 @@ export function SiteHeader() {
         >
           <span
             aria-hidden="true"
-            className="night relative flex size-9 items-center justify-center rounded-[9px] bg-paper pb-1 font-serif text-xl italic leading-none text-ink ring-1 ring-inset ring-line transition-transform duration-300 group-hover:-rotate-3"
+            className="relative flex size-9 items-center justify-center rounded-[9px] bg-ink pb-1 font-serif text-xl italic leading-none text-paper transition-transform duration-300 group-hover:-rotate-3"
           >
             js
             <span className="absolute right-1.5 top-1.5 size-1.5 rounded-full bg-accent" />
@@ -121,7 +121,7 @@ export function SiteHeader() {
           <ThemeToggle />
           <button
             type="button"
-            className="inline-flex h-10 items-center gap-2 rounded-full px-3 font-mono text-xs uppercase tracking-[0.08em] text-ink md:hidden"
+            className="inline-flex h-10 items-center gap-2 rounded-full px-3 text-sm font-medium text-ink md:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}
@@ -158,7 +158,7 @@ export function SiteHeader() {
                   className="flex items-baseline justify-between py-4"
                 >
                   <span className="font-serif text-4xl tracking-tight">{item.label}</span>
-                  <span className="font-mono text-xs text-lavender">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="text-[0.8125rem] text-green">{String(index + 1).padStart(2, "0")}</span>
                 </a>
               </li>
             ))}

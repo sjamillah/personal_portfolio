@@ -12,14 +12,14 @@ const channels = [
 
 export function Contact() {
   return (
-    <section aria-labelledby="contact-title" id="contact" className="night bg-paper py-16 text-ink lg:py-24">
+    <section aria-labelledby="contact-title" id="contact" className="bg-paper-sunk py-16 text-ink lg:py-24">
       <Reveal className="shell grid gap-12 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-7">
           <p className="eyebrow flex gap-3">
-            <span className="text-lavender">05</span>
+            <span className="text-green">05</span>
             <span>Contact</span>
           </p>
-          <h2 id="contact-title" className="mt-5 max-w-[18ch] font-serif text-title tracking-tight text-balance">
+          <h2 id="contact-title" className="mt-5 max-w-[18ch] font-serif text-title font-medium tracking-tight text-balance">
             Building something that needs the backend, the interface and the deployment to agree?
           </h2>
         </div>
@@ -27,7 +27,7 @@ export function Contact() {
         <div className="lg:col-span-5">
           <a
             href={`mailto:${profile.email}`}
-            className="block break-all font-serif text-[clamp(1.75rem,1rem+2.4vw,2.75rem)] leading-none tracking-tight transition-colors hover:text-accent sm:break-normal"
+            className="block break-all font-serif text-[clamp(1.75rem,1rem+2.4vw,2.75rem)] font-medium leading-none tracking-tight transition-colors hover:text-accent sm:break-normal"
           >
             {profile.email}
           </a>
