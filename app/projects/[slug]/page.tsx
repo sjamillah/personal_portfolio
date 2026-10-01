@@ -52,11 +52,21 @@ function Block({ id, index, title, children }: { id: string; index: number; titl
   );
 }
 
-function DetailGrid({ items, columns = 2 }: { items: DetailItem[]; columns?: 2 | 3 }) {
+function DetailGrid({ items }: { items: DetailItem[] }) {
+  const thirds = items.length % 3 === 0;
   return (
-    <ul className={`grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2 ${columns === 3 ? "xl:grid-cols-3" : ""}`}>
+    <ul
+      className={`grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2 ${
+        thirds ? "lg:grid-cols-3" : ""
+      }`}
+    >
       {items.map((item, index) => (
-        <li key={item.title} className="bg-paper p-6">
+        <li
+          key={item.title}
+          className={`bg-paper p-6 sm:[&:last-child:nth-child(odd)]:col-span-2 ${
+            thirds ? "lg:[&:last-child:nth-child(odd)]:col-span-1" : ""
+          }`}
+        >
           <p className="font-mono text-xs text-ink-faint">{String(index + 1).padStart(2, "0")}</p>
           <h3 className="mt-3 font-medium text-ink">{item.title}</h3>
           <p className="mt-2 leading-relaxed text-ink-soft">{item.body}</p>
@@ -138,14 +148,6 @@ function ProjectHeader({ project }: { project: Project }) {
         </dl>
       </div>
 
-      <dl className={`mt-14 grid gap-px overflow-hidden rounded-sm border border-line bg-line ${metricColumns[project.metrics.length] ?? "sm:grid-cols-3"}`}>
-        {project.metrics.map((metric) => (
-          <div key={metric.label} className="flex flex-col-reverse bg-paper-raised p-6">
-            <dt className="mt-2 font-mono text-xs text-ink-faint">{metric.label}</dt>
-            <dd className="font-serif text-4xl leading-none tracking-tight sm:text-5xl">{metric.value}</dd>
-          </div>
-        ))}
-      </dl>
     </header>
   );
 }
@@ -225,7 +227,7 @@ export default async function ProjectPage({ params }: PageProps) {
           </Block>
 
           <Block id="implementation" index={4} title="Implementation">
-            <DetailGrid items={project.implementation} columns={project.implementation.length > 4 ? 3 : 2} />
+            <DetailGrid items={project.implementation} />
           </Block>
 
           <Block id="challenges" index={5} title="Challenges">
@@ -240,14 +242,24 @@ export default async function ProjectPage({ params }: PageProps) {
           </Block>
 
           <Block id="results" index={6} title="Results">
-            <ul className="max-w-2xl space-y-4">
-              {project.results.map((result) => (
-                <li key={result} className="flex gap-4 text-lede text-ink">
-                  <span aria-hidden="true" className="mt-[0.7em] h-px w-5 shrink-0 bg-accent" />
-                  <span>{result}</span>
-                </li>
+            <dl className={`grid gap-px overflow-hidden rounded-sm border border-line bg-line ${metricColumns[project.metrics.length] ?? "sm:grid-cols-3"}`}>
+              {project.metrics.map((metric) => (
+                <div key={metric.label} className="flex flex-col-reverse bg-paper-raised p-6">
+                  <dt className="mt-2 font-mono text-xs text-ink-faint">{metric.label}</dt>
+                  <dd className="font-serif text-4xl leading-none tracking-tight sm:text-5xl">{metric.value}</dd>
+                </div>
               ))}
-            </ul>
+            </dl>
+            {project.results.length > 0 && (
+              <ul className="mt-10 max-w-2xl space-y-4">
+                {project.results.map((result) => (
+                  <li key={result} className="flex gap-4 text-lede text-ink">
+                    <span aria-hidden="true" className="mt-[0.7em] h-px w-5 shrink-0 bg-accent" />
+                    <span>{result}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </Block>
 
           <Block id="technologies" index={7} title="Technologies">

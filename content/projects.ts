@@ -209,9 +209,9 @@ export const projects: Project[] = [
       },
     ],
     results: [
-      "The application runs on ECS Fargate behind an Application Load Balancer, with images served from private S3 through CloudFront.",
-      "Releases are triggered by an image push and rolled out blue/green by CodeDeploy, with alarms able to stop a bad cutover.",
-      "There are no AWS access keys in either repository, and the test suite runs without AWS or a database.",
+      "Images are served from a private S3 bucket through CloudFront; the bucket itself is never public.",
+      "The test suite runs without an AWS account or a database, so it runs on every pull request.",
+      "Known gaps, from migrations to rate limiting, are documented alongside the change that would close each one.",
     ],
     technologies: [
       { label: "Application", items: ["Python", "PostgreSQL", "Docker"] },
@@ -307,9 +307,7 @@ export const projects: Project[] = [
       },
     ],
     results: [
-      "A working platform spanning a Django REST backend, a React dashboard and an offline-first React Native app.",
-      "Live GPS tracking over WebSockets and background synchronisation from the field.",
-      "More than 137 automated tests, and ML behaviour classification and movement prediction with LSTM and XGBoost.",
+      "One data model behind a Django REST backend, a live React dashboard and an offline-first React Native field app.",
     ],
     technologies: [
       { label: "Backend", items: ["Django REST Framework", "PostgreSQL", "Redis", "WebSockets"] },
@@ -381,7 +379,6 @@ export const projects: Project[] = [
     ],
     results: [
       "An end-to-end flow from mobile client to API to model and back.",
-      "85% model accuracy.",
     ],
     technologies: [
       { label: "Backend", items: ["FastAPI", "REST", "MongoDB"] },
@@ -458,7 +455,6 @@ export const projects: Project[] = [
       },
     ],
     results: [
-      "95.9% BERTScore.",
       "Publicly available as a live demo on Hugging Face Spaces.",
     ],
     technologies: [
@@ -528,11 +524,7 @@ export const projects: Project[] = [
         body: "Preprocessing and validating the dataset comes first, because a model can only be as reliable as the images it learns from.",
       },
     ],
-    results: [
-      "72% accuracy.",
-      "2nd Place at the Codextreme Hackathon 2025.",
-      "3rd Place at the HSIL Hackathon 2026.",
-    ],
+    results: [],
     technologies: [
       { label: "Model", items: ["CNN", "ResNet", "Transfer learning"] },
       { label: "Data", items: ["Medical image processing", "Dataset preprocessing", "Validation"] },
