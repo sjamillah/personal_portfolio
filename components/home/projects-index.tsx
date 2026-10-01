@@ -82,20 +82,7 @@ export function ProjectsIndex() {
       <div aria-hidden="true" className="hidden lg:col-span-6 lg:block">
         <div className="sticky top-24">
           <ProjectCover key={active.slug} project={active} className="animate-[cover-in_500ms_var(--ease-out-soft)]" />
-          <div className="mt-5 flex items-baseline justify-between gap-6">
-            <p className="font-serif text-2xl tracking-tight">{active.name}</p>
-            <p className="font-mono text-xs text-ink-faint">{active.focus}</p>
-          </div>
-          <ul className="mt-4 flex flex-wrap gap-2">
-            {active.technologies
-              .flatMap((group) => group.items)
-              .slice(0, 8)
-              .map((item) => (
-                <li key={item} className="rounded-full bg-lavender-soft px-3 py-1 font-mono text-xs text-ink">
-                  {item}
-                </li>
-              ))}
-          </ul>
+          <p className="mt-4 font-mono text-xs text-ink-faint">{active.focus}</p>
         </div>
       </div>
     </div>
