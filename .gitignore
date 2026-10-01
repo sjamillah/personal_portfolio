@@ -1,2 +1,9 @@
-# PHPStorm
-.idea
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.env*.local
+.DS_Store
+.idea/
+.vscode/
