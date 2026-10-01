@@ -27,7 +27,7 @@ export function Contact() {
         <div className="lg:col-span-5">
           <a
             href={`mailto:${profile.email}`}
-            className="block break-all font-serif text-[clamp(1.75rem,1rem+2.4vw,2.75rem)] font-medium leading-none tracking-tight transition-colors hover:text-accent sm:break-normal"
+            className="block font-serif text-[clamp(1.5rem,0.5rem+2.4vw,2.75rem)] font-medium leading-tight tracking-tight [overflow-wrap:anywhere] transition-colors hover:text-accent"
           >
             {profile.email}
           </a>
