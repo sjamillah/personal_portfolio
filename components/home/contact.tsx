@@ -6,8 +6,6 @@ import { Reveal } from "@/components/reveal";
 const channels = [
   { label: "LinkedIn", href: profile.links.linkedin },
   { label: "GitHub", href: profile.links.github },
-  { label: "Medium", href: profile.links.medium },
-  { label: "CV", href: profile.links.cv },
 ];
 
 export function Contact() {

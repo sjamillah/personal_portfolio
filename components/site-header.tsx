@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigation, profile } from "@/content/profile";
+import { ArrowUpRight } from "@/components/icons";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 function useActiveSection(enabled: boolean) {
@@ -118,6 +119,16 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-1">
+          <a
+            href={profile.links.cv}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mr-1 inline-flex h-10 items-center gap-1 rounded-full px-3 text-sm font-medium text-ink transition-colors hover:bg-paper-sunk"
+          >
+            CV
+            <ArrowUpRight className="text-ink-faint transition-colors group-hover:text-accent" />
+            <span className="sr-only">(opens in a new tab)</span>
+          </a>
           <ThemeToggle />
           <button
             type="button"

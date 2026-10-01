@@ -14,7 +14,7 @@ const personJsonLd = {
   email: `mailto:${profile.email}`,
   url: profile.siteUrl,
   address: { "@type": "PostalAddress", addressLocality: "Kigali", addressCountry: "RW" },
-  sameAs: [profile.links.github, profile.links.linkedin, profile.links.medium],
+  sameAs: [profile.links.github, profile.links.linkedin],
 };
 
 export default function HomePage() {

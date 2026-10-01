@@ -15,6 +15,7 @@ export function Hero() {
             alt="Portrait of Jamillah Ssozi"
             priority
             placeholder="blur"
+            quality={90}
             fill
             sizes="(min-width: 768px) 54vw, 100vw"
             className="object-cover object-[50%_18%]"

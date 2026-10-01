@@ -16,7 +16,6 @@ export const profile = {
   links: {
     github: "https://github.com/sjamillah",
     linkedin: "https://www.linkedin.com/in/jamillah-ssozi",
-    medium: "https://medium.com/@jamillahssozi",
     cv: "https://docs.google.com/document/d/1o6vr30Sr38HLNJ1tgobDeN42uls71GY0_d3hC1YAvbE/edit?usp=sharing",
   },
 } as const;
