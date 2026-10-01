@@ -107,7 +107,6 @@ export type SkillCategory = {
 
 export type SkillBand = {
   name: string;
-  note: string;
   categories: SkillCategory[];
 };
 

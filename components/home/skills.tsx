@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { certifications, skillBands, training } from "@/content/skills";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import type { Certification, Link } from "@/lib/types";
+import type { Link } from "@/lib/types";
 
 function UsedIn({ links }: { links: Link[] }) {
   if (links.length === 0) return null;
@@ -24,21 +24,32 @@ function UsedIn({ links }: { links: Link[] }) {
   );
 }
 
-function CredentialGroup({ title, items }: { title: string; items: Certification[] }) {
+function Credentials() {
+  const items = [
+    ...certifications.map((item) => ({ ...item, kind: "Certification" })),
+    ...training.map((item) => ({ ...item, kind: "Training" })),
+  ];
   return (
     <Reveal className="grid gap-y-4 lg:grid-cols-12 lg:gap-x-12">
-      <h3 className="font-serif text-3xl tracking-tight lg:col-span-3">{title}</h3>
+      <h3 className="font-serif text-3xl tracking-tight lg:col-span-3">Certification &amp; Training</h3>
       <ul className="lg:col-span-9 lg:mt-1">
         {items.map((item) => (
           <li
             key={item.name}
-            className="flex flex-col gap-1 border-t border-line py-4 first:border-ink sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+            className="grid gap-x-10 gap-y-1 border-t border-line py-4 first:border-ink md:grid-cols-[minmax(0,1fr)_auto]"
           >
             <p>
               <span className="font-medium text-ink">{item.name}</span>
               <span className="text-ink-soft">, {item.issuer}</span>
             </p>
-            <p className="shrink-0 text-[0.9375rem] tabular-nums text-ink-faint">{item.date}</p>
+            <p className="text-[0.9375rem] tabular-nums text-ink-faint md:text-right">
+              {item.kind}
+              <span aria-hidden="true" className="mx-2 text-line-strong">
+                ·
+              </span>
+              <span className="sr-only">, </span>
+              {item.date}
+            </p>
           </li>
         ))}
       </ul>
@@ -53,7 +64,6 @@ export function Skills() {
         index="04"
         label="Skills"
         id="skills-title"
-        aside="Where a group is used in my work, it links straight to the role or project that shows it."
       >
         A toolkit, organised by the job it does.
       </SectionHeading>
@@ -62,10 +72,7 @@ export function Skills() {
         {skillBands.map((band) => (
           <Reveal key={band.name}>
             <div className="grid gap-y-1 lg:grid-cols-12 lg:gap-x-12">
-              <div className="lg:col-span-3">
-                <h3 className="font-serif text-3xl tracking-tight">{band.name}</h3>
-                <p className="mt-2 max-w-xs text-[0.9375rem] leading-relaxed text-ink-faint">{band.note}</p>
-              </div>
+              <h3 className="font-serif text-3xl tracking-tight lg:col-span-3">{band.name}</h3>
               <dl className="mt-5 lg:col-span-9 lg:mt-1">
                 {band.categories.map((category) => (
                   <div
@@ -85,9 +92,8 @@ export function Skills() {
         ))}
       </div>
 
-      <div className="mt-14 space-y-10 lg:mt-16">
-        <CredentialGroup title="Certification" items={certifications} />
-        <CredentialGroup title="Training" items={training} />
+      <div className="mt-14 lg:mt-16">
+        <Credentials />
       </div>
     </section>
   );

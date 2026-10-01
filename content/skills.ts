@@ -14,7 +14,6 @@ const work = {
 export const skillBands: SkillBand[] = [
   {
     name: "Build",
-    note: "The languages and frameworks I build products with, on the server and on screen.",
     categories: [
       {
         name: "Languages",
@@ -43,7 +42,6 @@ export const skillBands: SkillBand[] = [
   },
   {
     name: "Data & AI",
-    note: "Storing data, then training, evaluating and serving models on it.",
     categories: [
       {
         name: "Databases",
@@ -80,7 +78,6 @@ export const skillBands: SkillBand[] = [
   },
   {
     name: "Ship",
-    note: "Getting software deployed, keeping it correct, and making it usable by everyone.",
     categories: [
       {
         name: "Cloud & DevOps",

@@ -6,9 +6,8 @@ export function Projects() {
     <section aria-labelledby="projects-title" id="projects" className="shell py-14 lg:py-20">
       <SectionHeading
         index="03"
-        label="Projects"
+        label="Independent projects"
         id="projects-title"
-        aside="Personal, academic and hackathon work, separate from the roles above. Each opens into a full case study."
       >
         The work is the argument.
       </SectionHeading>
