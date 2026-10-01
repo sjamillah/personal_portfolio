@@ -56,35 +56,21 @@ export const proof = [
   },
 ] as const;
 
-export const layers = [
+export const principles = [
   {
-    name: "Data",
-    work: "Relational and document schemas, caching, and dataset preprocessing and validation for models.",
-    evidence: ["Aureynx", "Darkroom", "Clinical Microscopy"],
+    title: "Own the whole path",
+    body: "From the schema to the deployment, so decisions in one layer are made knowing what the next one needs.",
   },
   {
-    name: "Backend & APIs",
-    work: "Django REST, FastAPI and NestJS services with authentication, WebSockets and asynchronous scraping.",
-    evidence: ["InsightFlow at AmaliTech", "Aureynx", "Chronic Disease"],
+    title: "Tests are part of the design",
+    body: "Test-driven development and automated checks decide what is allowed to ship, not a review at the end.",
   },
   {
-    name: "Machine learning",
-    work: "End-to-end pipelines: preprocessing, training, hyperparameter tuning, evaluation and served inference.",
-    evidence: ["ThinkGreen Afrika", "Medical Q&A", "Clinical Microscopy"],
+    title: "Accessible by default",
+    body: "Screen readers, large text and tablet layouts are requirements from the first screen, and tests keep them that way.",
   },
   {
-    name: "Interfaces",
-    work: "React dashboards, an offline-first React Native app and Flutter clients built against real APIs.",
-    evidence: ["Aureynx", "Chronic Disease", "The Gym Rwanda"],
-  },
-  {
-    name: "Delivery & cloud",
-    work: "Docker, GitHub Actions with OIDC, CodePipeline and CodeDeploy onto ECS Fargate, all in CloudFormation.",
-    evidence: ["Darkroom"],
-  },
-  {
-    name: "Accessibility",
-    work: "WCAG 2.2 audits with TalkBack and VoiceOver, large font scales, tablet layouts and guard tests.",
-    evidence: ["ARMS at AmaliTech"],
+    title: "Models earn their place",
+    body: "Machine learning is trained, evaluated and served behind an API, as a feature of a product rather than a notebook.",
   },
 ] as const;
