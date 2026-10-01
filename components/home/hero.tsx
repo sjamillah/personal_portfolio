@@ -8,57 +8,56 @@ export function Hero() {
 
   return (
     <section id="home" aria-labelledby="home-title">
-      <div className="bg-paper-sunk">
-        <div className="shell grid gap-x-12 pt-10 sm:pt-14 md:grid-cols-12 lg:pt-16">
-          <div className="flex flex-col justify-center pb-12 md:col-span-7 md:pb-16 lg:pb-20">
-            <p className="flex items-center gap-2.5 text-[0.9375rem] text-ink-soft">
-              <span aria-hidden="true" className="size-1.5 rounded-full bg-accent" />
-              <span>
-                <span className="font-medium text-ink">{role}</span>
-                <span aria-hidden="true" className="mx-2 text-line-strong">/</span>
-                <span className="sr-only">, </span>
-                {focus}
-              </span>
-            </p>
+      <div className="grid bg-paper-sunk md:min-h-[min(88vh,54rem)] md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+        <figure className="relative aspect-[4/5] max-h-[78vh] w-full md:order-2 md:aspect-auto md:max-h-none">
+          <Image
+            src={portrait}
+            alt="Portrait of Jamillah Ssozi"
+            priority
+            placeholder="blur"
+            fill
+            sizes="(min-width: 768px) 54vw, 100vw"
+            className="object-cover object-[50%_18%]"
+          />
+        </figure>
 
-            <h1 id="home-title" className="mt-8 font-serif text-ink">
-              <span className="block whitespace-nowrap text-[clamp(2.75rem,0.75rem+5.2vw,6rem)] font-medium leading-[0.95] tracking-[-0.03em]">
-                {profile.greeting}
-              </span>
-              <span className="mt-5 block max-w-[22ch] text-[clamp(1.625rem,1.1rem+1.6vw,2.5rem)] font-normal leading-[1.15] tracking-[-0.01em] text-balance">
-                {profile.headline.lead} <em className="text-accent">{profile.headline.accent}</em>
-              </span>
-            </h1>
+        <div className="flex flex-col justify-center px-4 py-12 sm:px-8 sm:py-16 md:order-1 md:py-16 md:pr-10 lg:py-20 lg:pl-[max(3rem,calc((100vw-88rem)/2+3rem))] lg:pr-14">
+          <p className="flex items-start gap-2.5 text-[0.9375rem] text-ink-soft">
+            <span aria-hidden="true" className="mt-[0.55em] size-1.5 shrink-0 rounded-full bg-accent" />
+            <span>
+              <span className="font-medium text-ink md:max-lg:block">{role}</span>
+              <span aria-hidden="true" className="mx-2 text-line-strong md:max-lg:hidden">/</span>
+              <span className="sr-only">, </span>
+              {focus}
+            </span>
+          </p>
 
-            <p className="mt-6 max-w-[34rem] text-[1.0625rem] leading-relaxed text-ink-soft">{profile.intro}</p>
+          <h1 id="home-title" className="mt-8 font-serif text-ink">
+            <span className="block text-[clamp(2.75rem,0.5rem+4.5vw,5.5rem)] font-medium leading-[0.95] tracking-[-0.03em]">
+              {profile.greeting}
+            </span>
+            <span className="mt-5 block max-w-[22ch] text-[clamp(1.5rem,1rem+1.4vw,2.375rem)] font-normal leading-[1.15] tracking-[-0.01em] text-balance">
+              {profile.headline.lead} <em className="text-accent">{profile.headline.accent}</em>
+            </span>
+          </h1>
 
-            <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
-              <a
-                href="#projects"
-                className="group inline-flex h-12 items-center gap-2 rounded-full bg-brand px-6 text-sm font-medium text-on-brand transition-colors hover:bg-brand-hover"
-              >
-                View projects
-                <ArrowDown className="transition-transform duration-300 group-hover:translate-y-0.5" />
-              </a>
-              <a href="#contact" className="group inline-flex items-center gap-2 text-sm font-medium text-ink">
-                <span className="link-underline">Contact me</span>
-                <ArrowRight className="transition-transform duration-300 group-hover:translate-x-0.5" />
-              </a>
-            </div>
+          <p className="mt-6 max-w-[32rem] text-[1.0625rem] leading-relaxed text-ink-soft">{profile.intro}</p>
 
-            <p className="mt-10 text-sm text-ink-faint">Based in {profile.location}</p>
+          <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
+            <a
+              href="#projects"
+              className="group inline-flex h-12 items-center gap-2 rounded-full bg-brand px-6 text-sm font-medium text-on-brand transition-colors hover:bg-brand-hover"
+            >
+              View projects
+              <ArrowDown className="transition-transform duration-300 group-hover:translate-y-0.5" />
+            </a>
+            <a href="#contact" className="group inline-flex items-center gap-2 text-sm font-medium text-ink">
+              <span className="link-underline">Contact me</span>
+              <ArrowRight className="transition-transform duration-300 group-hover:translate-x-0.5" />
+            </a>
           </div>
 
-          <figure className="self-end md:col-span-5 lg:col-start-8">
-            <Image
-              src={portrait}
-              alt="Portrait of Jamillah Ssozi"
-              priority
-              placeholder="blur"
-              sizes="(min-width: 1024px) 38vw, (min-width: 768px) 40vw, 100vw"
-              className="aspect-[4/5] w-full rounded-t-[4px] object-cover object-[50%_20%] sm:max-md:max-w-md"
-            />
-          </figure>
+          <p className="mt-10 text-sm text-ink-faint">Based in {profile.location}</p>
         </div>
       </div>
 
