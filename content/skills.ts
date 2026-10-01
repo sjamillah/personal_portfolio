@@ -137,6 +137,9 @@ export const certifications: Certification[] = [
     issuer: "Amazon Web Services",
     date: "Aug 2026",
   },
+];
+
+export const training: Certification[] = [
   {
     name: "Full-Stack Developer",
     issuer: "The Gym Rwanda",

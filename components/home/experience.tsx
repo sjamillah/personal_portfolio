@@ -119,7 +119,6 @@ export function Experience() {
           index="02"
           label="Experience"
           id="experience-title"
-          aside="Three roles between 2024 and 2026, most recent first."
         >
           Where the engineering happened.
         </SectionHeading>

@@ -1,8 +1,8 @@
 import { Fragment } from "react";
-import { certifications, skillBands } from "@/content/skills";
+import { certifications, skillBands, training } from "@/content/skills";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import type { Link } from "@/lib/types";
+import type { Certification, Link } from "@/lib/types";
 
 function UsedIn({ links }: { links: Link[] }) {
   if (links.length === 0) return null;
@@ -21,6 +21,28 @@ function UsedIn({ links }: { links: Link[] }) {
         </Fragment>
       ))}
     </p>
+  );
+}
+
+function CredentialGroup({ title, items }: { title: string; items: Certification[] }) {
+  return (
+    <Reveal className="grid gap-y-4 lg:grid-cols-12 lg:gap-x-12">
+      <h3 className="font-serif text-3xl tracking-tight lg:col-span-3">{title}</h3>
+      <ul className="lg:col-span-9 lg:mt-1">
+        {items.map((item) => (
+          <li
+            key={item.name}
+            className="flex flex-col gap-1 border-t border-line py-4 first:border-ink sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+          >
+            <p>
+              <span className="font-medium text-ink">{item.name}</span>
+              <span className="text-ink-soft">, {item.issuer}</span>
+            </p>
+            <p className="shrink-0 text-[0.9375rem] tabular-nums text-ink-faint">{item.date}</p>
+          </li>
+        ))}
+      </ul>
+    </Reveal>
   );
 }
 
@@ -63,24 +85,10 @@ export function Skills() {
         ))}
       </div>
 
-      <Reveal className="mt-14 grid gap-y-5 lg:mt-16 lg:grid-cols-12 lg:gap-x-12">
-        <h3 className="font-serif text-3xl tracking-tight lg:col-span-3">Certifications</h3>
-        <ul className="grid gap-x-10 sm:grid-cols-2 lg:col-span-9">
-          {certifications.map((cert) => (
-            <li key={cert.name} className="border-t border-line py-4 sm:[&:nth-child(-n+2)]:border-ink">
-              <p className="font-medium text-ink">{cert.name}</p>
-              <p className="mt-1 text-[0.9375rem] text-ink-soft">
-                {cert.issuer}
-                <span aria-hidden="true" className="mx-2 text-line-strong">
-                  ·
-                </span>
-                <span className="sr-only">, </span>
-                <span className="text-ink-faint">{cert.date}</span>
-              </p>
-            </li>
-          ))}
-        </ul>
-      </Reveal>
+      <div className="mt-14 space-y-10 lg:mt-16">
+        <CredentialGroup title="Certification" items={certifications} />
+        <CredentialGroup title="Training" items={training} />
+      </div>
     </section>
   );
 }
