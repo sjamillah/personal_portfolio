@@ -70,11 +70,24 @@ export function SiteHeader() {
       }`}
     >
       <div className="shell flex h-16 items-center justify-between gap-6">
-        <Link href="/#home" className="group flex items-baseline gap-2" onClick={() => setOpen(false)}>
-          <span className="font-serif text-2xl leading-none tracking-tight">{profile.name}</span>
-          <span className="hidden font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-faint lg:inline">
-            Software Engineer
+        <Link
+          href="/#home"
+          aria-label={`${profile.name}, home`}
+          className="group flex items-center gap-3"
+          onClick={() => setOpen(false)}
+        >
+          <span
+            aria-hidden="true"
+            className="night relative flex size-9 items-center justify-center rounded-[9px] bg-paper pb-1 font-serif text-xl italic leading-none text-ink ring-1 ring-inset ring-line transition-transform duration-300 group-hover:-rotate-3"
+          >
+            js
+            <span className="absolute right-1.5 top-1.5 size-1.5 rounded-full bg-accent" />
           </span>
+          {!isHome && (
+            <span aria-hidden="true" className="hidden font-serif text-xl leading-none tracking-tight sm:inline md:hidden lg:inline">
+              {profile.name}
+            </span>
+          )}
         </Link>
 
         <nav aria-label="Primary" className="hidden md:block">
