@@ -20,7 +20,7 @@ function IssueGrid({ resolved, total }: { resolved: number; total: number }) {
           />
         ))}
       </div>
-      <p aria-hidden="true" className="mt-3 flex gap-5 font-mono text-xs text-ink-faint">
+      <p aria-hidden="true" className="mt-3 flex gap-5 text-[0.8125rem] text-ink-faint">
         <span className="flex items-center gap-2">
           <span className="size-2 rounded-[1px] bg-accent" />
           Resolved
@@ -36,13 +36,13 @@ function IssueGrid({ resolved, total }: { resolved: number; total: number }) {
 
 function AccessibilityPanel({ stream }: { stream: Workstream }) {
   return (
-    <div className="rounded-sm border border-line bg-paper-raised p-5 sm:p-6">
+    <div className="border-t border-line pt-5">
       <h4 className="flex flex-wrap items-baseline justify-between gap-3">
         <span className="flex items-baseline gap-3">
           <span className="font-medium text-ink">{stream.name}</span>
-          <span className="font-mono text-xs text-ink-faint">{stream.area}</span>
+          <span className="text-[0.8125rem] text-ink-faint">{stream.area}</span>
         </span>
-        <span className="font-mono text-xs text-ink-faint">WCAG 2.2</span>
+        <span className="text-[0.8125rem] text-ink-faint">WCAG 2.2</span>
       </h4>
       <p className="mt-3 max-w-xl leading-relaxed text-ink-soft">{stream.points[0]}</p>
       <div className="mt-6 grid gap-6 sm:grid-cols-[auto_1fr] sm:items-end sm:gap-8">
@@ -59,7 +59,7 @@ function AccessibilityPanel({ stream }: { stream: Workstream }) {
           ["Regression", "Automated accessibility guard tests"],
         ].map(([term, detail]) => (
           <div key={term} className="flex flex-col gap-0.5">
-            <dt className="font-mono text-xs text-ink-faint">{term}</dt>
+            <dt className="text-[0.8125rem] text-ink-faint">{term}</dt>
             <dd className="text-ink">{detail}</dd>
           </div>
         ))}
@@ -73,12 +73,12 @@ function WorkstreamList({ stream }: { stream: Workstream }) {
     <div>
       <h4 className="flex items-baseline gap-3 border-b border-line pb-3">
         <span className="font-medium text-ink">{stream.name}</span>
-        <span className="font-mono text-xs text-ink-faint">{stream.area}</span>
+        <span className="text-[0.8125rem] text-ink-faint">{stream.area}</span>
       </h4>
       <ul className="mt-4 space-y-3 text-ink-soft">
         {stream.points.map((point) => (
           <li key={point} className="flex gap-3 leading-relaxed">
-            <span aria-hidden="true" className="mt-3 h-px w-3 shrink-0 bg-lavender" />
+            <span aria-hidden="true" className="mt-3 h-px w-3 shrink-0 bg-green" />
             <span>{point}</span>
           </li>
         ))}
@@ -97,7 +97,7 @@ function RoleEntry({ role }: { role: Role }) {
       className="grid gap-8 border-t border-line py-10 lg:grid-cols-12 lg:gap-12 lg:py-12"
     >
       <div className="lg:sticky lg:top-24 lg:col-span-5 lg:self-start">
-        <p className="flex flex-wrap items-baseline gap-x-3 font-mono text-sm">
+        <p className="flex flex-wrap items-baseline gap-x-3 text-sm tabular-nums">
           <span className="text-ink">
             <time dateTime={role.startISO}>{role.start}</time>
             <span aria-hidden="true"> — </span>
@@ -117,7 +117,7 @@ function RoleEntry({ role }: { role: Role }) {
           <dl className="flex flex-wrap gap-x-12 gap-y-6">
             {role.metrics.map((metric) => (
               <div key={metric.label} className="flex flex-col-reverse">
-                <dt className="mt-2 font-mono text-xs text-ink-faint">{metric.label}</dt>
+                <dt className="mt-2 text-[0.8125rem] text-ink-faint">{metric.label}</dt>
                 <dd className="font-serif text-5xl leading-none tracking-tight">{metric.value}</dd>
               </div>
             ))}

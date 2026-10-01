@@ -25,13 +25,11 @@ export function About() {
 
       <Reveal className="mt-10 lg:mt-12">
         <h3 className="sr-only">How I work</h3>
-        <ol className="grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {principles.map((principle, index) => (
-            <li key={principle.title} className="flex flex-col bg-paper p-6 lg:min-h-56 lg:p-7">
-              <span className="font-mono text-xs text-lavender">{String(index + 1).padStart(2, "0")}</span>
-              <p className="mt-6 font-serif text-[1.75rem] leading-[1.1] tracking-tight text-ink lg:mt-auto">
-                {principle.title}
-              </p>
+            <li key={principle.title} className="border-t border-line pt-5">
+              <span className="text-sm font-medium text-green">{String(index + 1).padStart(2, "0")}</span>
+              <p className="mt-3 font-serif text-2xl leading-[1.15] tracking-tight text-ink">{principle.title}</p>
               <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-soft">{principle.body}</p>
             </li>
           ))}

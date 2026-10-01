@@ -43,7 +43,7 @@ function Block({ id, index, title, children }: { id: string; index: number; titl
     <section aria-labelledby={`${id}-title`} id={id} className="scroll-mt-24 border-t border-line pt-8">
       <Reveal>
         <h2 id={`${id}-title`} className="flex items-baseline gap-4">
-          <span className="font-mono text-xs text-lavender">{String(index).padStart(2, "0")}</span>
+          <span className="text-[0.8125rem] text-green">{String(index).padStart(2, "0")}</span>
           <span className="font-serif text-4xl tracking-tight sm:text-5xl">{title}</span>
         </h2>
         <div className="mt-6">{children}</div>
@@ -53,22 +53,12 @@ function Block({ id, index, title, children }: { id: string; index: number; titl
 }
 
 function DetailGrid({ items }: { items: DetailItem[] }) {
-  const thirds = items.length % 3 === 0;
   return (
-    <ul
-      className={`grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2 ${
-        thirds ? "lg:grid-cols-3" : ""
-      }`}
-    >
+    <ul className={`grid gap-x-10 gap-y-9 sm:grid-cols-2 ${items.length % 3 === 0 ? "lg:grid-cols-3" : ""}`}>
       {items.map((item, index) => (
-        <li
-          key={item.title}
-          className={`bg-paper p-6 sm:[&:last-child:nth-child(odd)]:col-span-2 ${
-            thirds ? "lg:[&:last-child:nth-child(odd)]:col-span-1" : ""
-          }`}
-        >
-          <p className="font-mono text-xs text-ink-faint">{String(index + 1).padStart(2, "0")}</p>
-          <h3 className="mt-3 font-medium text-ink">{item.title}</h3>
+        <li key={item.title} className="border-t border-line pt-5">
+          <p className="text-sm font-medium text-green">{String(index + 1).padStart(2, "0")}</p>
+          <h3 className="mt-2 font-medium text-ink">{item.title}</h3>
           <p className="mt-2 leading-relaxed text-ink-soft">{item.body}</p>
         </li>
       ))}
@@ -76,30 +66,30 @@ function DetailGrid({ items }: { items: DetailItem[] }) {
   );
 }
 
-const metricColumns: Record<number, string> = { 1: "max-w-sm", 2: "sm:grid-cols-2", 3: "sm:grid-cols-3" };
-
 function ProjectHeader({ project }: { project: Project }) {
   return (
     <header className="shell pb-12 pt-8 sm:pt-10 lg:pb-14">
-      <Link href="/#projects" className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] text-ink-faint hover:text-ink">
+      <Link href="/#projects" className="group inline-flex items-center gap-2 text-sm font-medium text-ink-faint hover:text-ink">
         <ArrowLeft className="transition-transform duration-300 group-hover:-translate-x-0.5" />
         All projects
       </Link>
 
       <p className="eyebrow mt-10 flex flex-wrap gap-x-3">
-        <span className="text-lavender">{project.index}</span>
+        <span className="text-green">{project.index}</span>
         <span>{project.kind}</span>
       </p>
       <h1 className="mt-5 max-w-[16ch] font-serif text-display tracking-[-0.02em] text-balance">{project.name}</h1>
 
       {project.awards && (
-        <ul aria-label="Awards" className="mt-10 grid max-w-3xl gap-3 sm:grid-cols-2">
+        <ul aria-label="Awards" className="mt-10 flex flex-wrap gap-x-14 gap-y-6">
           {project.awards.map((award) => (
-            <li key={award.event} className="flex items-center gap-5 rounded-sm bg-accent p-5 text-on-accent">
-              <span className="font-serif text-5xl leading-none">{award.place.split(" ")[0]}</span>
-              <span>
-                <span className="block font-medium">{award.event}</span>
-                <span className="block font-mono text-xs">
+            <li key={award.event} className="flex items-end gap-4">
+              <span className="font-serif text-7xl leading-[0.8] tracking-tight text-accent sm:text-8xl">
+                {award.place.split(" ")[0]}
+              </span>
+              <span className="pb-1">
+                <span className="block font-medium text-ink">{award.event}</span>
+                <span className="block text-sm text-ink-faint">
                   {award.place} · {award.year}
                 </span>
               </span>
@@ -112,11 +102,11 @@ function ProjectHeader({ project }: { project: Project }) {
         <p className="text-lede text-ink-soft lg:col-span-7">{project.tagline}</p>
         <dl className="grid gap-5 text-sm lg:col-span-4 lg:col-start-9">
           <div>
-            <dt className="font-mono text-xs text-ink-faint">Focus</dt>
+            <dt className="text-[0.8125rem] text-ink-faint">Focus</dt>
             <dd className="mt-1 text-ink">{project.focus}</dd>
           </div>
           <div>
-            <dt className="font-mono text-xs text-ink-faint">Code</dt>
+            <dt className="text-[0.8125rem] text-ink-faint">Code</dt>
             <dd className="mt-1 flex items-center gap-2 text-ink">
               {project.code === "public" ? <Code /> : <Lock />}
               {project.code === "public" ? "Public repository" : "Private repository"}
@@ -124,7 +114,7 @@ function ProjectHeader({ project }: { project: Project }) {
           </div>
           {project.links.length > 0 && (
             <div>
-              <dt className="font-mono text-xs text-ink-faint">Links</dt>
+              <dt className="text-[0.8125rem] text-ink-faint">Links</dt>
               <dd className="mt-1">
                 <ul className="space-y-1">
                   {project.links.map((link) => (
@@ -186,7 +176,7 @@ export default async function ProjectPage({ params }: PageProps) {
             <ol className="border-t border-line">
               {project.approach.map((step, index) => (
                 <li key={step.title} className="grid gap-2 border-b border-line py-5 sm:grid-cols-[3rem_14rem_1fr] sm:gap-6">
-                  <span className="font-mono text-xs text-ink-faint sm:pt-1">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="text-[0.8125rem] text-ink-faint sm:pt-1">{String(index + 1).padStart(2, "0")}</span>
                   <h3 className="font-medium text-ink">{step.title}</h3>
                   <p className="leading-relaxed text-ink-soft">{step.body}</p>
                 </li>
@@ -206,21 +196,21 @@ export default async function ProjectPage({ params }: PageProps) {
                   aria-label={`${project.architecture.diagram.title}, scrolls horizontally on small screens`}
                   className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0"
                 >
-                  <div className="min-w-[600px] rounded-sm border border-line p-4 sm:p-6">
+                  <div className="min-w-[600px] rounded-[4px] bg-paper-sunk p-5 sm:p-8">
                     <Diagram spec={project.architecture.diagram} className="h-auto w-full" />
                   </div>
                 </div>
-                <figcaption className="mt-3 font-mono text-xs text-ink-faint">{project.architecture.diagram.title}</figcaption>
+                <figcaption className="mt-3 text-[0.8125rem] text-ink-faint">{project.architecture.diagram.title}</figcaption>
               </figure>
             )}
-            <details className="group mt-8 rounded-sm border border-line">
-              <summary className="flex cursor-pointer list-none items-center justify-between px-5 py-4 text-sm text-ink [&::-webkit-details-marker]:hidden">
+            <details className="group mt-8 border-y border-line">
+              <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-sm font-medium text-ink [&::-webkit-details-marker]:hidden">
                 Read the diagram as a list
-                <span aria-hidden="true" className="font-mono text-ink-faint transition-transform group-open:rotate-45">
+                <span aria-hidden="true" className="text-lg leading-none text-ink-faint transition-transform group-open:rotate-45">
                   +
                 </span>
               </summary>
-              <div className="border-t border-line px-5 py-4">
+              <div className="border-t border-line py-4">
                 <DiagramFlows spec={project.architecture.diagram} />
               </div>
             </details>
@@ -242,10 +232,10 @@ export default async function ProjectPage({ params }: PageProps) {
           </Block>
 
           <Block id="results" index={6} title="Results">
-            <dl className={`grid gap-px overflow-hidden rounded-sm border border-line bg-line ${metricColumns[project.metrics.length] ?? "sm:grid-cols-3"}`}>
+            <dl className="flex flex-wrap gap-x-14 gap-y-8">
               {project.metrics.map((metric) => (
-                <div key={metric.label} className="flex flex-col-reverse bg-paper-raised p-6">
-                  <dt className="mt-2 font-mono text-xs text-ink-faint">{metric.label}</dt>
+                <div key={metric.label} className="flex max-w-[16rem] flex-col-reverse">
+                  <dt className="mt-2 text-sm leading-snug text-ink-faint">{metric.label}</dt>
                   <dd className="font-serif text-4xl leading-none tracking-tight sm:text-5xl">{metric.value}</dd>
                 </div>
               ))}
@@ -266,12 +256,16 @@ export default async function ProjectPage({ params }: PageProps) {
             <dl className="border-t border-line">
               {project.technologies.map((group) => (
                 <div key={group.label} className="grid gap-3 border-b border-line py-5 sm:grid-cols-[14rem_1fr] sm:gap-6">
-                  <dt className="font-mono text-xs text-ink-faint sm:pt-1.5">{group.label}</dt>
+                  <dt className="text-[0.8125rem] text-ink-faint sm:pt-1.5">{group.label}</dt>
                   <dd>
-                    <ul className="flex flex-wrap gap-2">
-                      {group.items.map((item) => (
-                        <li key={item} className="rounded-full bg-lavender-soft px-3 py-1 text-sm text-ink">
+                    <ul className="flex flex-wrap gap-y-1 text-ink">
+                      {group.items.map((item, index) => (
+                        <li
+                          key={item}
+                          className="after:mx-2 after:text-line-strong after:content-['/'] last:after:content-none"
+                        >
                           {item}
+                          {index < group.items.length - 1 && <span className="sr-only">,</span>}
                         </li>
                       ))}
                     </ul>

@@ -68,7 +68,7 @@ export function DarkroomExplorer() {
   return (
     <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
       <div className="min-w-0 lg:col-span-4">
-        <div role="tablist" aria-label="Darkroom architecture views" className="flex flex-wrap gap-2 lg:flex-col lg:items-start">
+        <div role="tablist" aria-label="Darkroom architecture views" className="flex flex-wrap gap-x-6 gap-y-2 border-b border-line lg:flex-col lg:items-start lg:border-b-0">
           {views.map((view, index) => {
             const selected = index === activeIndex;
             return (
@@ -85,13 +85,11 @@ export function DarkroomExplorer() {
                 tabIndex={selected ? 0 : -1}
                 onClick={() => setActiveIndex(index)}
                 onKeyDown={onKeyDown}
-                className={`group flex items-center gap-3 rounded-full border px-4 py-2 text-sm transition-colors lg:rounded-none lg:border-0 lg:border-l-2 lg:px-0 lg:pl-4 lg:text-base ${
-                  selected
-                    ? "border-ink bg-ink text-paper lg:border-accent lg:bg-transparent lg:text-ink"
-                    : "border-line text-ink-soft hover:border-line-strong hover:text-ink lg:border-line"
+                className={`-mb-px flex items-center gap-3 border-b-2 py-2.5 text-sm font-medium transition-colors lg:mb-0 lg:border-b-0 lg:border-l-2 lg:py-2 lg:pl-4 lg:text-base ${
+                  selected ? "border-accent text-ink" : "border-transparent text-ink-faint hover:text-ink lg:border-line"
                 }`}
               >
-                <span className="font-mono text-xs">0{index + 1}</span>
+                <span className="text-[0.8125rem]">0{index + 1}</span>
                 {view.label}
               </button>
             );
@@ -124,11 +122,11 @@ export function DarkroomExplorer() {
           aria-label="Darkroom architecture diagram, scrolls horizontally on small screens"
           className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0"
         >
-          <div className="min-w-[640px] rounded-sm border border-line bg-paper p-4 sm:p-6">
+          <div className="min-w-[640px] rounded-[4px] bg-paper-sunk p-5 sm:p-8">
             <Diagram spec={darkroomDiagram} highlight={active.highlight} className="h-auto w-full" />
           </div>
         </div>
-        <figcaption className="mt-3 font-mono text-xs text-ink-faint">
+        <figcaption className="mt-3 text-[0.8125rem] text-ink-faint">
           Darkroom on AWS. Select a view to trace one path through the system.
         </figcaption>
       </figure>

@@ -25,7 +25,7 @@ export function ProjectsIndex() {
               >
                 <div className="flex items-start gap-4 sm:gap-6">
                   <span
-                    className={`pt-2 font-mono text-xs transition-colors ${
+                    className={`pt-2 text-[0.8125rem] transition-colors ${
                       selected ? "text-ink" : "text-ink-faint"
                     }`}
                   >
@@ -44,27 +44,28 @@ export function ProjectsIndex() {
                         }`}
                       />
                     </div>
-                    <p className="mt-2 font-mono text-xs text-ink-faint">{project.kind}</p>
+                    <p className="mt-2 text-sm text-ink-faint">{project.kind}</p>
                     <p className="mt-4 max-w-lg leading-relaxed text-ink-soft">{project.summary}</p>
 
                     {project.awards && (
-                      <ul aria-label="Awards" className="mt-5 flex flex-wrap gap-2">
+                      <ul aria-label="Awards" className="mt-4 space-y-1 text-[0.9375rem] text-ink">
                         {project.awards.map((award) => (
-                          <li
-                            key={award.event}
-                            className="inline-flex items-center gap-2 rounded-full bg-accent px-3 py-1 text-xs font-medium text-on-accent"
-                          >
-                            <span aria-hidden="true">★</span>
-                            {award.place}, {award.event} {award.year}
+                          <li key={award.event} className="flex items-baseline gap-2.5">
+                            <span aria-hidden="true" className="text-accent">
+                              ★
+                            </span>
+                            <span>
+                              <span className="font-medium">{award.place}</span>, {award.event} {award.year}
+                            </span>
                           </li>
                         ))}
                       </ul>
                     )}
 
-                    <p className="mt-5 flex flex-wrap gap-x-6 gap-y-1 font-mono text-xs">
+                    <p className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm">
                       {project.metrics.slice(0, 2).map((metric) => (
                         <span key={metric.label}>
-                          <span className="text-ink">{metric.value}</span>{" "}
+                          <span className="font-medium text-ink">{metric.value}</span>{" "}
                           <span className="text-ink-faint">{metric.label}</span>
                         </span>
                       ))}
@@ -82,7 +83,7 @@ export function ProjectsIndex() {
       <div aria-hidden="true" className="hidden lg:col-span-6 lg:block">
         <div className="sticky top-24">
           <ProjectCover key={active.slug} project={active} className="animate-[cover-in_500ms_var(--ease-out-soft)]" />
-          <p className="mt-4 font-mono text-xs text-ink-faint">{active.focus}</p>
+          <p className="mt-4 text-sm text-ink-faint">{active.focus}</p>
         </div>
       </div>
     </div>
