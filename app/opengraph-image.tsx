@@ -31,12 +31,12 @@ export default async function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 24, fontFamily: "monospace", color: brand.light.inkFaint }}>
-          <div style={{ width: 12, height: 12, borderRadius: 12, background: brand.signal }} />
+          <div style={{ width: 12, height: 12, borderRadius: 12, background: brand.accent }} />
           {profile.title.toUpperCase()}
         </div>
         <div style={{ display: "flex", flexDirection: "column", fontSize: 112, lineHeight: 1, letterSpacing: -2 }}>
           <span>{profile.headline.lead}</span>
-          <span style={{ color: brand.light.accentDisplay, fontStyle: "italic" }}>{profile.headline.accent}</span>
+          <span style={{ color: brand.light.accent, fontStyle: "italic" }}>{profile.headline.accent}</span>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 28, borderTop: `1px solid ${brand.light.line}`, paddingTop: 24 }}>
           <span>{profile.name}</span>

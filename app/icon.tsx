@@ -37,7 +37,7 @@ export default async function Icon() {
             width: 9,
             height: 9,
             borderRadius: 9,
-            background: brand.signal,
+            background: brand.accent,
           }}
         />
       </div>

@@ -53,7 +53,7 @@ export function Skills() {
                           <a
                             key={link.label}
                             href={link.href}
-                            className="text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+                            className="text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:decoration-accent"
                           >
                             {link.label}
                           </a>

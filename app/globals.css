@@ -3,84 +3,76 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 :root {
-  --paper: #f7f5fa;
+  --paper: #faf5f7;
   --paper-raised: #ffffff;
-  --paper-sunk: #efebf6;
+  --paper-sunk: #f1ecf2;
   --ink: #231942;
-  --ink-soft: #463d6b;
-  --ink-faint: #665d8a;
-  --line: #ddd6ea;
-  --line-strong: #837aa8;
-  --signal: #fb6107;
-  --on-signal: #231942;
-  --accent: #b84500;
-  --accent-display: #ea5600;
-  --accent-soft: #ffe4d2;
-  --lavender: #6e4f93;
-  --lavender-soft: #e8ddf1;
-  --focus: #b84500;
+  --ink-soft: #484168;
+  --ink-faint: #655f82;
+  --line: #ded8e1;
+  --line-strong: #807b9c;
+  --accent: #ee5702;
+  --on-accent: #231942;
+  --accent-soft: #fde4d6;
+  --lavender: #6b578f;
+  --lavender-soft: #eee6f1;
+  --focus: #ee5702;
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --paper: #140f26;
-  --paper-raised: #1d1636;
-  --paper-sunk: #271e47;
-  --ink: #f5eef4;
-  --ink-soft: #d0c6df;
-  --ink-faint: #a398c2;
-  --line: #342a5c;
-  --line-strong: #7f74ae;
-  --signal: #fb6107;
-  --on-signal: #231942;
-  --accent: #ff7a2e;
-  --accent-display: #fb6107;
-  --accent-soft: #3d2133;
-  --lavender: #be95c4;
-  --lavender-soft: #3a2c5e;
-  --focus: #ff7a2e;
+  --paper: #120d24;
+  --paper-raised: #1a152d;
+  --paper-sunk: #221d36;
+  --ink: #f3eef4;
+  --ink-soft: #d0cbda;
+  --ink-faint: #a6a0b9;
+  --line: #332f48;
+  --line-strong: #7a7596;
+  --accent: #fb6107;
+  --on-accent: #231942;
+  --accent-soft: #3a2028;
+  --lavender: #bbaade;
+  --lavender-soft: #312941;
+  --focus: #fb6107;
   color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #140f26;
-    --paper-raised: #1d1636;
-    --paper-sunk: #271e47;
-    --ink: #f5eef4;
-    --ink-soft: #d0c6df;
-    --ink-faint: #a398c2;
-    --line: #342a5c;
-    --line-strong: #7f74ae;
-    --signal: #fb6107;
-    --on-signal: #231942;
-    --accent: #ff7a2e;
-    --accent-display: #fb6107;
-    --accent-soft: #3d2133;
-    --lavender: #be95c4;
-    --lavender-soft: #3a2c5e;
-    --focus: #ff7a2e;
+    --paper: #120d24;
+    --paper-raised: #1a152d;
+    --paper-sunk: #221d36;
+    --ink: #f3eef4;
+    --ink-soft: #d0cbda;
+    --ink-faint: #a6a0b9;
+    --line: #332f48;
+    --line-strong: #7a7596;
+    --accent: #fb6107;
+    --on-accent: #231942;
+    --accent-soft: #3a2028;
+    --lavender: #bbaade;
+    --lavender-soft: #312941;
+    --focus: #fb6107;
     color-scheme: dark;
   }
 }
 
 .night {
   --paper: #231942;
-  --paper-raised: #2e2352;
-  --paper-sunk: #2e2352;
-  --ink: #f5eef4;
-  --ink-soft: #d0c6df;
-  --ink-faint: #a99fc8;
-  --line: #3b2f66;
-  --line-strong: #8579b5;
-  --signal: #fb6107;
-  --on-signal: #231942;
-  --accent: #ff7a2e;
-  --accent-display: #fb6107;
-  --accent-soft: #3d2133;
-  --lavender: #be95c4;
-  --lavender-soft: #3a2c5e;
-  --focus: #ff7a2e;
+  --paper-raised: #2f2550;
+  --paper-sunk: #2f2550;
+  --ink: #f3eef4;
+  --ink-soft: #d0cbda;
+  --ink-faint: #ada6c2;
+  --line: #3e375a;
+  --line-strong: #807b9f;
+  --accent: #fb6107;
+  --on-accent: #231942;
+  --accent-soft: #3a2028;
+  --lavender: #bbaade;
+  --lavender-soft: #3a3058;
+  --focus: #fb6107;
   color-scheme: dark;
 }
 
@@ -93,10 +85,8 @@
   --color-ink-faint: var(--ink-faint);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
-  --color-signal: var(--signal);
-  --color-on-signal: var(--on-signal);
   --color-accent: var(--accent);
-  --color-accent-display: var(--accent-display);
+  --color-on-accent: var(--on-accent);
   --color-accent-soft: var(--accent-soft);
   --color-lavender: var(--lavender);
   --color-lavender-soft: var(--lavender-soft);
@@ -106,6 +96,8 @@
   --font-serif: var(--font-instrument), "Iowan Old Style", Georgia, serif;
 
   --text-display: clamp(2.75rem, 1.2rem + 6.6vw, 7.75rem);
+  --text-hero: clamp(2.875rem, 1rem + 6.8vw, 7.25rem);
+  --text-hero--line-height: 0.96;
   --text-display--line-height: 0.95;
   --text-title: clamp(2rem, 1.2rem + 3.2vw, 4rem);
   --text-title--line-height: 1.02;
@@ -132,8 +124,8 @@
   }
 
   ::selection {
-    background: var(--signal);
-    color: var(--on-signal);
+    background: var(--accent);
+    color: var(--on-accent);
   }
 
   :focus-visible {

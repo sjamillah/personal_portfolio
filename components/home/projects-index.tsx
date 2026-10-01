@@ -26,7 +26,7 @@ export function ProjectsIndex() {
                 <div className="flex items-start gap-4 sm:gap-6">
                   <span
                     className={`pt-2 font-mono text-xs transition-colors ${
-                      selected ? "text-accent" : "text-ink-faint"
+                      selected ? "text-ink" : "text-ink-faint"
                     }`}
                   >
                     {project.index}
@@ -52,7 +52,7 @@ export function ProjectsIndex() {
                         {project.awards.map((award) => (
                           <li
                             key={award.event}
-                            className="inline-flex items-center gap-2 rounded-full bg-signal px-3 py-1 text-xs font-medium text-on-signal"
+                            className="inline-flex items-center gap-2 rounded-full bg-accent px-3 py-1 text-xs font-medium text-on-accent"
                           >
                             <span aria-hidden="true">★</span>
                             {award.place}, {award.event} {award.year}

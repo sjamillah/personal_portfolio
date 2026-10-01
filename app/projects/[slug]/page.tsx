@@ -85,7 +85,7 @@ function ProjectHeader({ project }: { project: Project }) {
       {project.awards && (
         <ul aria-label="Awards" className="mt-10 grid max-w-3xl gap-3 sm:grid-cols-2">
           {project.awards.map((award) => (
-            <li key={award.event} className="flex items-center gap-5 rounded-sm bg-signal p-5 text-on-signal">
+            <li key={award.event} className="flex items-center gap-5 rounded-sm bg-accent p-5 text-on-accent">
               <span className="font-serif text-5xl leading-none">{award.place.split(" ")[0]}</span>
               <span>
                 <span className="block font-medium">{award.event}</span>

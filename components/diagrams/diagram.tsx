@@ -120,7 +120,7 @@ export function DiagramFlows({ spec }: { spec: DiagramSpec }) {
       {spec.edges.map((edge) => (
         <li key={edge.id} className="flex flex-wrap items-baseline gap-x-2 border-b border-line py-2">
           <span className="text-ink">{names.get(edge.from)}</span>
-          <span aria-hidden="true" className="text-accent">
+          <span aria-hidden="true" className="text-lavender">
             →
           </span>
           <span className="sr-only">to</span>
