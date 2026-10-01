@@ -5,134 +5,107 @@ import type { Role, Workstream } from "@/lib/types";
 
 function IssueGrid({ resolved, total }: { resolved: number; total: number }) {
   return (
-    <div>
-      <div
-        role="img"
-        aria-label={`${resolved} of ${total} accessibility issues resolved`}
-        className="flex max-w-[30rem] flex-wrap gap-1"
-      >
-        {Array.from({ length: total }, (_, index) => (
-          <span
-            key={index}
-            className={`size-3 rounded-[2px] sm:size-3.5 ${
-              index < resolved ? "bg-accent" : "border border-dashed border-ink-faint"
-            }`}
-          />
-        ))}
-      </div>
-      <p aria-hidden="true" className="mt-3 flex gap-5 text-[0.8125rem] text-ink-faint">
-        <span className="flex items-center gap-2">
-          <span className="size-2 rounded-[1px] bg-accent" />
-          Resolved
-        </span>
-        <span className="flex items-center gap-2">
-          <span className="size-2 rounded-[1px] border border-dashed border-ink-faint" />
-          Open
-        </span>
-      </p>
+    <div
+      role="img"
+      aria-label={`${resolved} of ${total} accessibility issues resolved`}
+      className="flex max-w-[26rem] flex-wrap gap-1"
+    >
+      {Array.from({ length: total }, (_, index) => (
+        <span
+          key={index}
+          className={`size-2.5 rounded-[2px] sm:size-3 ${
+            index < resolved ? "bg-accent" : "border border-dashed border-ink-faint"
+          }`}
+        />
+      ))}
     </div>
   );
 }
 
-function AccessibilityPanel({ stream }: { stream: Workstream }) {
+function Points({ points }: { points: string[] }) {
   return (
-    <div className="border-t border-line pt-5">
-      <h4 className="flex flex-wrap items-baseline justify-between gap-3">
-        <span className="flex items-baseline gap-3">
-          <span className="font-medium text-ink">{stream.name}</span>
-          <span className="text-[0.8125rem] text-ink-faint">{stream.area}</span>
-        </span>
-        <span className="text-[0.8125rem] text-ink-faint">WCAG 2.2</span>
-      </h4>
-      <p className="mt-3 max-w-xl leading-relaxed text-ink-soft">{stream.points[0]}</p>
-      <div className="mt-6 grid gap-6 sm:grid-cols-[auto_1fr] sm:items-end sm:gap-8">
-        <p className="font-serif text-6xl leading-none tracking-tight sm:text-7xl">
-          55<span className="text-ink-faint">/58</span>
-        </p>
-        <IssueGrid resolved={55} total={58} />
-      </div>
-      <dl className="mt-6 grid gap-x-8 gap-y-4 border-t border-line pt-5 text-sm sm:grid-cols-2">
-        {[
-          ["On device", "44 screens tested"],
-          ["Text", "Large font-scale support"],
-          ["Layout", "Responsive tablet layouts"],
-          ["Regression", "Automated accessibility guard tests"],
-        ].map(([term, detail]) => (
-          <div key={term} className="flex flex-col gap-0.5">
-            <dt className="text-[0.8125rem] text-ink-faint">{term}</dt>
-            <dd className="text-ink">{detail}</dd>
+    <ul className="max-w-[62ch] space-y-2.5 text-ink-soft">
+      {points.map((point) => (
+        <li key={point} className="flex gap-3 leading-relaxed">
+          <span aria-hidden="true" className="mt-[0.7em] h-px w-3 shrink-0 bg-green" />
+          <span>{point}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function Strand({ stream, titled }: { stream: Workstream; titled: boolean }) {
+  const isArms = stream.name === "ARMS";
+  return (
+    <div>
+      {titled && (
+        <h4 className="mb-3 text-ink">
+          <span className="font-medium">{stream.name}</span>
+          <span className="text-ink-faint"> — {stream.area}</span>
+        </h4>
+      )}
+      <Points points={stream.points} />
+      {isArms && (
+        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+          <p className="font-serif text-5xl leading-none tracking-tight">
+            55<span className="text-ink-faint">/58</span>
+          </p>
+          <div>
+            <IssueGrid resolved={55} total={58} />
+            <p className="mt-2 text-sm text-ink-faint">accessibility issues resolved against WCAG 2.2</p>
           </div>
-        ))}
-      </dl>
-    </div>
-  );
-}
-
-function WorkstreamList({ stream }: { stream: Workstream }) {
-  return (
-    <div>
-      <h4 className="flex items-baseline gap-3 border-b border-line pb-3">
-        <span className="font-medium text-ink">{stream.name}</span>
-        <span className="text-[0.8125rem] text-ink-faint">{stream.area}</span>
-      </h4>
-      <ul className="mt-4 space-y-3 text-ink-soft">
-        {stream.points.map((point) => (
-          <li key={point} className="flex gap-3 leading-relaxed">
-            <span aria-hidden="true" className="mt-3 h-px w-3 shrink-0 bg-green" />
-            <span>{point}</span>
-          </li>
-        ))}
-      </ul>
+        </div>
+      )}
     </div>
   );
 }
 
 function RoleEntry({ role }: { role: Role }) {
-  const lists = role.workstreams.filter((stream) => stream.name !== "ARMS");
-  const panel = role.workstreams.find((stream) => stream.name === "ARMS");
+  const titled = role.workstreams.length > 1;
+  const hasArms = role.workstreams.some((stream) => stream.name === "ARMS");
 
   return (
     <article
       aria-labelledby={`role-${role.id}`}
-      className="grid gap-8 border-t border-line py-10 lg:grid-cols-12 lg:gap-12 lg:py-12"
+      className="grid gap-6 border-t border-line py-10 lg:grid-cols-12 lg:gap-12 lg:py-12"
     >
-      <div className="lg:sticky lg:top-24 lg:col-span-5 lg:self-start">
-        <p className="flex flex-wrap items-baseline gap-x-3 text-sm tabular-nums">
-          <span className="text-ink">
-            <time dateTime={role.startISO}>{role.start}</time>
-            <span aria-hidden="true"> — </span>
-            <span className="sr-only"> to </span>
-            <time dateTime={role.endISO}>{role.end}</time>
-          </span>
-          <span className="text-ink-faint">{role.org}</span>
-        </p>
-        <h3 id={`role-${role.id}`} className="mt-4 font-serif text-3xl leading-[1.05] tracking-tight sm:text-4xl">
+      <div className="lg:sticky lg:top-24 lg:col-span-4 lg:self-start">
+        <h3 id={`role-${role.id}`} className="font-serif text-[1.75rem] leading-[1.1] tracking-tight sm:text-3xl">
           {role.title}
         </h3>
-        <p className="mt-4 max-w-md text-[1.0625rem] leading-relaxed text-ink-soft">{role.summary}</p>
+        <p className="mt-2 text-ink-soft">
+          <span className="font-medium text-ink">{role.org}</span>
+          <span aria-hidden="true" className="mx-2 text-line-strong">
+            ·
+          </span>
+          <span className="sr-only">, </span>
+          <time dateTime={role.startISO}>{role.start}</time>
+          <span aria-hidden="true"> – </span>
+          <span className="sr-only"> to </span>
+          <time dateTime={role.endISO}>{role.end}</time>
+        </p>
       </div>
 
-      <div className="space-y-8 lg:col-span-7">
-        {role.metrics && !panel && (
-          <dl className="flex flex-wrap gap-x-12 gap-y-6">
+      <div className="lg:col-span-8">
+        <p className="max-w-[60ch] text-lede text-ink">{role.summary}</p>
+
+        {role.metrics && !hasArms && (
+          <dl className="mt-6 flex flex-wrap gap-x-12 gap-y-4">
             {role.metrics.map((metric) => (
               <div key={metric.label} className="flex flex-col-reverse">
-                <dt className="mt-2 text-[0.8125rem] text-ink-faint">{metric.label}</dt>
+                <dt className="mt-1 text-sm text-ink-faint">{metric.label}</dt>
                 <dd className="font-serif text-5xl leading-none tracking-tight">{metric.value}</dd>
               </div>
             ))}
           </dl>
         )}
 
-        {lists.length > 0 && (
-          <div className={`grid gap-8 ${lists.length > 1 ? "md:grid-cols-2" : ""}`}>
-            {lists.map((stream) => (
-              <WorkstreamList key={stream.name} stream={stream} />
-            ))}
-          </div>
-        )}
-
-        {panel && <AccessibilityPanel stream={panel} />}
+        <div className="mt-7 space-y-8">
+          {role.workstreams.map((stream) => (
+            <Strand key={stream.name} stream={stream} titled={titled} />
+          ))}
+        </div>
       </div>
     </article>
   );
@@ -146,7 +119,7 @@ export function Experience() {
           index="02"
           label="Experience"
           id="experience-title"
-          aside="From full-stack TypeScript, through machine learning, to Python backend services and accessibility engineering."
+          aside="Three roles between 2024 and 2026, most recent first."
         >
           Where the engineering happened.
         </SectionHeading>

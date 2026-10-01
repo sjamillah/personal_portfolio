@@ -10,7 +10,7 @@ export const experience: Role[] = [
     startISO: "2026-03",
     endISO: "2026-09",
     summary:
-      "Two workstreams: Python backend services for InsightFlow, and accessibility engineering on the ARMS mobile app.",
+      "Two products and two kinds of engineering: backend services in Python, and making a mobile app usable by everyone.",
     workstreams: [
       {
         name: "InsightFlow",
@@ -25,6 +25,7 @@ export const experience: Role[] = [
         area: "Accessibility",
         points: [
           "Audited and fixed the app against WCAG 2.2, testing every change with TalkBack and VoiceOver.",
+          "Tested on device across 44 screens, including large font scales and responsive tablet layouts, and added automated guard tests so fixed issues stay fixed.",
         ],
       },
     ],
@@ -42,21 +43,15 @@ export const experience: Role[] = [
     startISO: "2024-11",
     endISO: "2025-12",
     summary:
-      "Full-stack TypeScript development, with peer code review as a core part of the work.",
+      "Over a year of building features and reviewing other people's code in a Git-based team workflow.",
     workstreams: [
       {
-        name: "Full-stack",
-        area: "Development",
+        name: "Full-stack development",
+        area: "TypeScript",
         points: [
           "Built full-stack features in TypeScript with Node.js, NestJS, React and SQL.",
-          "Worked in a Git-based branching and code review workflow.",
-        ],
-      },
-      {
-        name: "Code review",
-        area: "Quality",
-        points: [
           "Reviewed peers' code to identify bugs, edge cases and logic gaps.",
+          "Worked in a Git-based branching and code review workflow.",
         ],
       },
     ],
