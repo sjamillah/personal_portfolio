@@ -1,6 +1,4 @@
-import Image from "next/image";
-import portrait from "@/assets/jamillah.jpg";
-import { layers, profile } from "@/content/profile";
+import { layers } from "@/content/profile";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
@@ -12,23 +10,7 @@ export function About() {
       </SectionHeading>
 
       <div className="mt-14 grid gap-12 lg:mt-20 lg:grid-cols-12 lg:gap-12">
-        <Reveal className="lg:col-span-3">
-          <figure className="max-w-xs">
-            <Image
-              src={portrait}
-              alt="Jamillah Ssozi"
-              placeholder="blur"
-              sizes="(min-width: 1024px) 20vw, (min-width: 640px) 320px, 70vw"
-              className="aspect-[4/5] w-full rounded-sm object-cover grayscale-[15%]"
-            />
-            <figcaption className="mt-3 flex justify-between font-mono text-xs text-ink-faint">
-              <span>{profile.name}</span>
-              <span>{profile.location}</span>
-            </figcaption>
-          </figure>
-        </Reveal>
-
-        <div className="space-y-6 text-lede text-ink-soft lg:col-span-6">
+        <div className="max-w-2xl space-y-6 text-lede text-ink-soft lg:col-span-7 lg:col-start-4">
           <Reveal>
             <p>
               <span className="text-ink">
@@ -69,7 +51,7 @@ export function About() {
               key={layer.name}
               className="group grid gap-2 border-b border-line py-6 transition-colors hover:bg-paper-raised sm:grid-cols-[3rem_1fr] lg:grid-cols-12 lg:gap-12 lg:py-7"
             >
-              <span className="font-mono text-xs text-lavender transition-colors group-hover:text-accent lg:col-span-1 lg:pt-1.5">
+              <span className="font-mono text-xs text-lavender transition-colors group-hover:text-ink lg:col-span-1 lg:pt-1.5">
                 L{index + 1}
               </span>
               <div className="sm:col-start-2 lg:col-span-11 lg:col-start-2 lg:grid lg:grid-cols-11 lg:gap-12">
