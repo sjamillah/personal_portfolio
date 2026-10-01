@@ -11,17 +11,19 @@ type SectionHeadingProps = {
 
 export function SectionHeading({ index, label, id, children, aside }: SectionHeadingProps) {
   return (
-    <Reveal className="grid gap-6 border-t border-ink pt-6 lg:grid-cols-12 lg:gap-12">
-      <p className="eyebrow flex gap-3 lg:col-span-3">
-        <span className="text-lavender">{index}</span>
-        <span>{label}</span>
-      </p>
-      <div className="lg:col-span-9">
-        <h2 id={id} className="max-w-[18ch] font-serif text-title tracking-tight text-balance">
+    <Reveal className="grid gap-5 border-t border-ink pt-5 lg:grid-cols-12 lg:items-end lg:gap-12">
+      <div className="lg:col-span-7">
+        <p className="eyebrow flex gap-3">
+          <span className="text-lavender">{index}</span>
+          <span>{label}</span>
+        </p>
+        <h2 id={id} className="mt-4 font-serif text-title tracking-tight text-balance">
           {children}
         </h2>
-        {aside && <div className="mt-6 max-w-2xl text-lede text-ink-soft">{aside}</div>}
       </div>
+      {aside && (
+        <div className="max-w-xl text-[1.0625rem] leading-relaxed text-ink-soft lg:col-span-5 lg:pb-1.5">{aside}</div>
+      )}
     </Reveal>
   );
 }

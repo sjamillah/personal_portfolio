@@ -14,7 +14,7 @@ export function Hero() {
   const [role, focus] = profile.title.split(" | ");
 
   return (
-    <section id="home" aria-labelledby="home-title" className="shell pb-6 pt-4 sm:pb-16 sm:pt-6 lg:pb-20">
+    <section id="home" aria-labelledby="home-title" className="shell pb-4 pt-4 sm:pt-6 lg:pb-6">
       <div className="grid overflow-hidden rounded-[4px] md:min-h-[min(82vh,48rem)] md:grid-cols-12">
         <figure className="relative aspect-square md:order-2 md:col-span-5 md:aspect-auto">
           <Image
@@ -75,8 +75,8 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="mt-14 lg:mt-20">
-        <h2 className="eyebrow mb-5">Evidence from the work</h2>
+      <div className="mt-12 lg:mt-14">
+        <h2 className="eyebrow mb-4">Evidence from the work</h2>
         <ul className="grid grid-cols-2 border-t border-ink lg:grid-cols-4">
           {proof.map((item, index) => (
             <li key={item.value} className={`border-line ${cellLayout[index]}`}>

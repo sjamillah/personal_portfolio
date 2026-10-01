@@ -3,7 +3,7 @@ import { SectionHeading } from "@/components/section-heading";
 
 export function Projects() {
   return (
-    <section aria-labelledby="projects-title" id="projects" className="shell py-20 lg:py-32">
+    <section aria-labelledby="projects-title" id="projects" className="shell py-14 lg:py-20">
       <SectionHeading
         index="03"
         label="Projects"
@@ -13,7 +13,7 @@ export function Projects() {
         The work is the argument.
       </SectionHeading>
 
-      <div className="mt-14 lg:mt-20">
+      <div className="mt-10 lg:mt-12">
         <ProjectsIndex />
       </div>
     </section>

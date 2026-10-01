@@ -21,7 +21,7 @@ export function ProjectsIndex() {
                 href={`/projects/${project.slug}`}
                 onMouseEnter={() => setActiveSlug(project.slug)}
                 onFocus={() => setActiveSlug(project.slug)}
-                className="group block py-7 sm:py-8"
+                className="group block py-6 sm:py-7"
               >
                 <div className="flex items-start gap-4 sm:gap-6">
                   <span
@@ -70,7 +70,7 @@ export function ProjectsIndex() {
                       ))}
                     </p>
 
-                    <ProjectCover project={project} className="mt-6 lg:hidden" />
+                    <ProjectCover project={project} className="mt-6 hidden sm:block lg:hidden" />
                   </div>
                 </div>
               </Link>
