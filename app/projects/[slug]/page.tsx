@@ -46,7 +46,7 @@ function Block({ id, index, title, children }: { id: string; index: number; titl
           <span className="font-mono text-xs text-lavender">{String(index).padStart(2, "0")}</span>
           <span className="font-serif text-4xl tracking-tight sm:text-5xl">{title}</span>
         </h2>
-        <div className="mt-8">{children}</div>
+        <div className="mt-6">{children}</div>
       </Reveal>
     </section>
   );
@@ -80,13 +80,13 @@ const metricColumns: Record<number, string> = { 1: "max-w-sm", 2: "sm:grid-cols-
 
 function ProjectHeader({ project }: { project: Project }) {
   return (
-    <header className="shell pb-16 pt-10 sm:pt-14 lg:pb-20">
+    <header className="shell pb-12 pt-8 sm:pt-10 lg:pb-14">
       <Link href="/#projects" className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.08em] text-ink-faint hover:text-ink">
         <ArrowLeft className="transition-transform duration-300 group-hover:-translate-x-0.5" />
         All projects
       </Link>
 
-      <p className="eyebrow mt-12 flex flex-wrap gap-x-3">
+      <p className="eyebrow mt-10 flex flex-wrap gap-x-3">
         <span className="text-lavender">{project.index}</span>
         <span>{project.kind}</span>
       </p>
@@ -108,7 +108,7 @@ function ProjectHeader({ project }: { project: Project }) {
         </ul>
       )}
 
-      <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-12">
+      <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-12">
         <p className="text-lede text-ink-soft lg:col-span-7">{project.tagline}</p>
         <dl className="grid gap-5 text-sm lg:col-span-4 lg:col-start-9">
           <div>
@@ -164,14 +164,14 @@ export default async function ProjectPage({ params }: PageProps) {
     <article>
       <ProjectHeader project={project} />
 
-      <div className="shell grid gap-12 pb-24 lg:grid-cols-12 lg:gap-12 lg:pb-32">
+      <div className="shell grid gap-12 pb-16 lg:grid-cols-12 lg:gap-12 lg:pb-24">
         <aside className="hidden lg:col-span-3 lg:block">
           <div className="sticky top-24">
             <CaseStudyNav sections={sections} />
           </div>
         </aside>
 
-        <div className="min-w-0 space-y-20 lg:col-span-9 lg:space-y-28">
+        <div className="min-w-0 space-y-14 lg:col-span-9 lg:space-y-20">
           <Block id="problem" index={1} title="Problem">
             <div className="max-w-2xl space-y-5 text-lede text-ink-soft">
               {project.problem.map((paragraph, index) => (
@@ -284,7 +284,7 @@ export default async function ProjectPage({ params }: PageProps) {
       </div>
 
       <nav aria-label="Next project" className="border-t border-line">
-        <Link href={`/projects/${next.slug}`} className="group shell flex items-end justify-between gap-6 py-14 lg:py-20">
+        <Link href={`/projects/${next.slug}`} className="group shell flex items-end justify-between gap-6 py-10 lg:py-14">
           <span>
             <span className="eyebrow block">Next project · {next.index}</span>
             <span className="mt-4 block font-serif text-title tracking-tight text-balance">

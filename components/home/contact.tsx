@@ -12,37 +12,35 @@ const channels = [
 
 export function Contact() {
   return (
-    <section aria-labelledby="contact-title" id="contact" className="night bg-paper py-24 text-ink lg:py-36">
-      <div className="shell">
-        <Reveal>
-          <p className="font-mono text-xs uppercase tracking-[0.08em] text-ink-faint">
-            <span className="text-lavender">05</span>&nbsp;&nbsp;&nbsp;Contact
+    <section aria-labelledby="contact-title" id="contact" className="night bg-paper py-16 text-ink lg:py-24">
+      <Reveal className="shell grid gap-12 lg:grid-cols-12 lg:items-end">
+        <div className="lg:col-span-7">
+          <p className="eyebrow flex gap-3">
+            <span className="text-lavender">05</span>
+            <span>Contact</span>
           </p>
-          <h2 id="contact-title" className="mt-8 max-w-[16ch] font-serif text-title tracking-tight text-balance">
+          <h2 id="contact-title" className="mt-5 max-w-[18ch] font-serif text-title tracking-tight text-balance">
             Building something that needs the backend, the interface and the deployment to agree?
           </h2>
-        </Reveal>
+        </div>
 
-        <Reveal className="mt-14 lg:mt-20">
-          <div className="flex flex-col gap-4 border-y border-line-strong py-8 sm:flex-row sm:items-center sm:justify-between">
-            <a
-              href={`mailto:${profile.email}`}
-              className="font-serif text-[clamp(1.6rem,1rem+3.4vw,4.25rem)] leading-none tracking-tight break-all transition-colors hover:text-accent sm:break-normal"
-            >
-              {profile.email}
-            </a>
+        <div className="lg:col-span-5">
+          <a
+            href={`mailto:${profile.email}`}
+            className="block break-all font-serif text-[clamp(1.75rem,1rem+2.4vw,2.75rem)] leading-none tracking-tight transition-colors hover:text-accent sm:break-normal"
+          >
+            {profile.email}
+          </a>
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-4 border-t border-line-strong pt-6">
             <CopyEmail email={profile.email} />
-          </div>
-
-          <div className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-12">
-            <ul className="flex flex-wrap gap-x-8 gap-y-3 lg:col-span-8">
+            <ul className="flex flex-wrap gap-x-5 gap-y-2">
               {channels.map((channel) => (
                 <li key={channel.label}>
                   <a
                     href={channel.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-1.5 text-lg text-ink-soft transition-colors hover:text-ink"
+                    className="group inline-flex items-center gap-1 text-ink-soft transition-colors hover:text-ink"
                   >
                     {channel.label}
                     <ArrowUpRight className="text-ink-faint transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
@@ -51,10 +49,9 @@ export function Contact() {
                 </li>
               ))}
             </ul>
-            <p className="font-mono text-sm text-ink-faint sm:text-right lg:col-span-4">{profile.location}</p>
           </div>
-        </Reveal>
-      </div>
+        </div>
+      </Reveal>
     </section>
   );
 }
