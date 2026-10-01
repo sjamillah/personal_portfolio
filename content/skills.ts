@@ -14,7 +14,7 @@ const work = {
 export const skillBands: SkillBand[] = [
   {
     name: "Build",
-    note: "The languages, frameworks and stores I build products with.",
+    note: "The languages and frameworks I build products with, on the server and on screen.",
     categories: [
       {
         name: "Languages",
@@ -39,17 +39,17 @@ export const skillBands: SkillBand[] = [
         items: ["React", "Next.js", "React Native", "Flutter"],
         evidence: [work.aureynx, work.chronic, work.gym],
       },
+    ],
+  },
+  {
+    name: "Data & AI",
+    note: "Storing data, then training, evaluating and serving models on it.",
+    categories: [
       {
         name: "Databases",
         items: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
         evidence: [work.darkroom, work.aureynx, work.chronic],
       },
-    ],
-  },
-  {
-    name: "Model",
-    note: "Training, evaluating and serving machine learning, and building on language models.",
-    categories: [
       {
         name: "Machine Learning",
         items: [
