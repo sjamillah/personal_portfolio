@@ -10,7 +10,7 @@ export const experience: Role[] = [
     startISO: "2026-03",
     endISO: "2026-09",
     summary:
-      "Backend services for InsightFlow and accessibility engineering on the ARMS mobile app, built with test-driven development throughout.",
+      "Two workstreams: Python backend services for InsightFlow, and accessibility engineering on the ARMS mobile app.",
     workstreams: [
       {
         name: "InsightFlow",
@@ -24,9 +24,7 @@ export const experience: Role[] = [
         name: "ARMS",
         area: "Accessibility",
         points: [
-          "Audited and fixed the app against WCAG 2.2 with TalkBack and VoiceOver, resolving 55 of 58 accessibility issues.",
-          "Wrote automated accessibility guard tests so resolved issues are caught if they return.",
-          "Tested on device across 44 screens, including large font scales, and built responsive tablet layouts.",
+          "Audited and fixed the app against WCAG 2.2, testing every change with TalkBack and VoiceOver.",
         ],
       },
     ],
@@ -34,7 +32,6 @@ export const experience: Role[] = [
       { value: "55/58", label: "accessibility issues resolved" },
       { value: "44", label: "screens tested on device" },
     ],
-    stack: ["Python", "TDD", "Git Flow", "SOLID", "WCAG 2.2", "TalkBack", "VoiceOver"],
   },
   {
     id: "the-gym",
@@ -45,7 +42,7 @@ export const experience: Role[] = [
     startISO: "2024-11",
     endISO: "2025-12",
     summary:
-      "Full-stack development in TypeScript, with peer code review as a core part of the work.",
+      "Full-stack TypeScript development, with peer code review as a core part of the work.",
     workstreams: [
       {
         name: "Full-stack",
@@ -63,7 +60,6 @@ export const experience: Role[] = [
         ],
       },
     ],
-    stack: ["TypeScript", "Node.js", "NestJS", "React", "SQL", "Git"],
   },
   {
     id: "thinkgreen",
@@ -80,8 +76,7 @@ export const experience: Role[] = [
         name: "Skillset classification",
         area: "Machine learning",
         points: [
-          "Built the pipeline end to end: data preprocessing, training, hyperparameter tuning and evaluation.",
-          "Reached 95.4% accuracy with a validation loss of 0.15.",
+          "Data preprocessing, training, hyperparameter tuning and evaluation.",
         ],
       },
     ],
@@ -89,6 +84,5 @@ export const experience: Role[] = [
       { value: "95.4%", label: "classification accuracy" },
       { value: "0.15", label: "validation loss" },
     ],
-    stack: ["Python", "Machine learning", "Hyperparameter tuning", "Evaluation"],
   },
 ];

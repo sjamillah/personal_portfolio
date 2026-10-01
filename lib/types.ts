@@ -97,7 +97,6 @@ export type Role = {
   summary: string;
   workstreams: Workstream[];
   metrics?: Metric[];
-  stack: string[];
 };
 
 export type SkillCategory = {

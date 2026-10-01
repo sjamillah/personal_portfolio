@@ -1,7 +1,7 @@
 import { experience } from "@/content/experience";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import type { Role } from "@/lib/types";
+import type { Role, Workstream } from "@/lib/types";
 
 function IssueGrid({ resolved, total }: { resolved: number; total: number }) {
   return (
@@ -34,14 +34,18 @@ function IssueGrid({ resolved, total }: { resolved: number; total: number }) {
   );
 }
 
-function AccessibilityEvidence() {
+function AccessibilityPanel({ stream }: { stream: Workstream }) {
   return (
-    <div className="mt-8 rounded-sm border border-line bg-paper-raised p-5 sm:p-7">
-      <div className="flex flex-wrap items-baseline justify-between gap-4">
-        <p className="eyebrow">ARMS · accessibility in practice</p>
-        <p className="font-mono text-xs text-ink-faint">WCAG 2.2</p>
-      </div>
-      <div className="mt-6 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-end sm:gap-10">
+    <div className="rounded-sm border border-line bg-paper-raised p-5 sm:p-7">
+      <h4 className="flex flex-wrap items-baseline justify-between gap-3">
+        <span className="flex items-baseline gap-3">
+          <span className="font-medium text-ink">{stream.name}</span>
+          <span className="font-mono text-xs text-ink-faint">{stream.area}</span>
+        </span>
+        <span className="font-mono text-xs text-ink-faint">WCAG 2.2</span>
+      </h4>
+      <p className="mt-3 max-w-xl leading-relaxed text-ink-soft">{stream.points[0]}</p>
+      <div className="mt-7 grid gap-8 sm:grid-cols-[auto_1fr] sm:items-end sm:gap-10">
         <p className="font-serif text-7xl leading-none tracking-tight sm:text-8xl">
           55<span className="text-ink-faint">/58</span>
         </p>
@@ -49,12 +53,10 @@ function AccessibilityEvidence() {
       </div>
       <dl className="mt-8 grid gap-x-8 gap-y-4 border-t border-line pt-6 text-sm sm:grid-cols-2">
         {[
-          ["Screen readers", "TalkBack and VoiceOver"],
           ["On device", "44 screens tested"],
           ["Text", "Large font-scale support"],
           ["Layout", "Responsive tablet layouts"],
           ["Regression", "Automated accessibility guard tests"],
-          ["Semantics", "Screen-reader accessibility"],
         ].map(([term, detail]) => (
           <div key={term} className="flex flex-col gap-0.5">
             <dt className="font-mono text-xs text-ink-faint">{term}</dt>
@@ -66,8 +68,30 @@ function AccessibilityEvidence() {
   );
 }
 
+function WorkstreamList({ stream }: { stream: Workstream }) {
+  return (
+    <div>
+      <h4 className="flex items-baseline gap-3 border-b border-line pb-3">
+        <span className="font-medium text-ink">{stream.name}</span>
+        <span className="font-mono text-xs text-ink-faint">{stream.area}</span>
+      </h4>
+      <ul className="mt-4 space-y-3 text-ink-soft">
+        {stream.points.map((point) => (
+          <li key={point} className="flex gap-3 leading-relaxed">
+            <span aria-hidden="true" className="mt-3 h-px w-3 shrink-0 bg-lavender" />
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function RoleEntry({ role }: { role: Role }) {
-  const hasArms = role.workstreams.some((stream) => stream.name === "ARMS");
+  const hasPanel = role.workstreams.some((stream) => stream.name === "ARMS");
+  const lists = role.workstreams.filter((stream) => stream.name !== "ARMS");
+  const panel = role.workstreams.find((stream) => stream.name === "ARMS");
+
   return (
     <article aria-labelledby={`role-${role.id}`} className="grid gap-6 border-t border-line py-12 lg:grid-cols-12 lg:gap-12 lg:py-16">
       <div className="lg:col-span-3">
@@ -86,7 +110,7 @@ function RoleEntry({ role }: { role: Role }) {
         </h3>
         <p className="mt-4 max-w-2xl text-lede text-ink-soft">{role.summary}</p>
 
-        {role.metrics && !hasArms && (
+        {role.metrics && !hasPanel && (
           <dl className="mt-8 flex flex-wrap gap-x-12 gap-y-6">
             {role.metrics.map((metric) => (
               <div key={metric.label} className="flex flex-col-reverse">
@@ -97,34 +121,12 @@ function RoleEntry({ role }: { role: Role }) {
           </dl>
         )}
 
-        <div className={`mt-10 grid gap-10 ${role.workstreams.length > 1 ? "md:grid-cols-2" : ""}`}>
-          {role.workstreams.map((stream) => (
-            <div key={stream.name}>
-              <h4 className="flex items-baseline gap-3 border-b border-line pb-3">
-                <span className="font-medium text-ink">{stream.name}</span>
-                <span className="font-mono text-xs text-ink-faint">{stream.area}</span>
-              </h4>
-              <ul className="mt-4 space-y-3 text-ink-soft">
-                {stream.points.map((point) => (
-                  <li key={point} className="flex gap-3 leading-relaxed">
-                    <span aria-hidden="true" className="mt-3 h-px w-3 shrink-0 bg-lavender" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+        <div className={`mt-10 grid gap-10 ${lists.length > 1 ? "md:grid-cols-2" : ""}`}>
+          {lists.map((stream) => (
+            <WorkstreamList key={stream.name} stream={stream} />
           ))}
+          {panel && <AccessibilityPanel stream={panel} />}
         </div>
-
-        {hasArms && <AccessibilityEvidence />}
-
-        <ul aria-label="Tools and practices" className="mt-8 flex flex-wrap gap-2">
-          {role.stack.map((item) => (
-            <li key={item} className="rounded-full bg-lavender-soft px-3 py-1 font-mono text-xs text-ink">
-              {item}
-            </li>
-          ))}
-        </ul>
       </div>
     </article>
   );
@@ -138,7 +140,6 @@ export function Experience() {
           index="02"
           label="Experience"
           id="experience-title"
-          aside="Professional roles across backend engineering, full-stack development, machine learning and accessibility."
         >
           Where the engineering happened.
         </SectionHeading>
