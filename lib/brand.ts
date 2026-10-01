@@ -1,15 +1,16 @@
 export const brand = {
   light: {
-    paper: "#faf5f7",
-    ink: "#231942",
-    inkFaint: "#655f82",
-    line: "#ded8e1",
-    accent: "#ee5702",
+    paper: "#f9f8f3",
+    ink: "#0a3200",
+    inkFaint: "#5f6a5c",
+    line: "#dadacf",
+    accent: "#ee5b00",
+    green: "#396c2c",
   },
   dark: {
-    paper: "#120d24",
+    paper: "#091407",
   },
-  violet: "#231942",
-  accent: "#fb6107",
-  mist: "#f3eef4",
+  forest: "#0a3200",
+  accent: "#f7721a",
+  cream: "#f2f0e7",
 } as const;

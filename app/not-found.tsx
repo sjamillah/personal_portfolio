@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <section className="shell flex min-h-[70dvh] flex-col justify-center py-24">
       <p className="eyebrow">
-        <span className="text-lavender">404</span> · Not found
+        <span className="text-green">404</span> · Not found
       </p>
       <h1 className="mt-6 max-w-[14ch] font-serif text-display tracking-tight">This page isn&apos;t here.</h1>
       <Link href="/" className="group mt-10 inline-flex items-center gap-2 text-sm font-medium">

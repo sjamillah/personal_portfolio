@@ -7,7 +7,7 @@ export const size = { width: 64, height: 64 };
 export const contentType = "image/png";
 
 export default async function Icon() {
-  const italic = await readFile(join(process.cwd(), "assets/fonts/InstrumentSerif-Italic.ttf"));
+  const italic = await readFile(join(process.cwd(), "assets/fonts/Newsreader-MediumItalic.ttf"));
 
   return new ImageResponse(
     (
@@ -19,12 +19,12 @@ export default async function Icon() {
           alignItems: "center",
           justifyContent: "center",
           position: "relative",
-          background: brand.violet,
+          background: brand.forest,
           borderRadius: 14,
-          color: brand.mist,
-          fontFamily: "Instrument Serif",
+          color: brand.cream,
+          fontFamily: "Newsreader",
           fontStyle: "italic",
-          fontSize: 40,
+          fontSize: 38,
           paddingBottom: 6,
         }}
       >
@@ -42,6 +42,6 @@ export default async function Icon() {
         />
       </div>
     ),
-    { ...size, fonts: [{ name: "Instrument Serif", data: italic, style: "italic", weight: 400 }] },
+    { ...size, fonts: [{ name: "Newsreader", data: italic, style: "italic", weight: 500 }] },
   );
 }

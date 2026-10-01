@@ -83,7 +83,7 @@ export function Diagram({ spec, highlight, className, decorative = false }: Diag
               width={node.w}
               height={h}
               rx="3"
-              fill={muted ? "transparent" : accent ? "var(--accent-soft)" : "var(--lavender-soft)"}
+              fill={muted ? "transparent" : accent ? "var(--accent-soft)" : "var(--green-soft)"}
               stroke={accent ? "var(--accent)" : "var(--line-strong)"}
               strokeDasharray={muted ? "3 3" : undefined}
               strokeWidth="1"
@@ -120,7 +120,7 @@ export function DiagramFlows({ spec }: { spec: DiagramSpec }) {
       {spec.edges.map((edge) => (
         <li key={edge.id} className="flex flex-wrap items-baseline gap-x-2 border-b border-line py-2">
           <span className="text-ink">{names.get(edge.from)}</span>
-          <span aria-hidden="true" className="text-lavender">
+          <span aria-hidden="true" className="text-green">
             →
           </span>
           <span className="sr-only">to</span>

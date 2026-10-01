@@ -38,7 +38,7 @@ export function CaseStudyNav({ sections }: { sections: readonly Section[] }) {
                   current ? "border-accent text-ink" : "border-transparent text-ink-faint hover:text-ink"
                 }`}
               >
-                <span className="font-mono text-[0.6875rem]">{String(index + 1).padStart(2, "0")}</span>
+                <span className="text-xs tabular-nums">{String(index + 1).padStart(2, "0")}</span>
                 {section.label}
               </a>
             </li>

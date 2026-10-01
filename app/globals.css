@@ -3,77 +3,65 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 :root {
-  --paper: #faf5f7;
+  --paper: #f9f8f3;
   --paper-raised: #ffffff;
-  --paper-sunk: #f1ecf2;
-  --ink: #231942;
-  --ink-soft: #484168;
-  --ink-faint: #655f82;
-  --line: #ded8e1;
-  --line-strong: #807b9c;
-  --accent: #ee5702;
-  --on-accent: #231942;
-  --accent-soft: #fde4d6;
-  --lavender: #6b578f;
-  --lavender-soft: #eee6f1;
-  --focus: #ee5702;
+  --paper-sunk: #f8f0e2;
+  --ink: #0a3200;
+  --ink-soft: #424f3f;
+  --ink-faint: #5f6a5c;
+  --line: #dadacf;
+  --line-strong: #758272;
+  --brand: #0a3200;
+  --on-brand: #f9f8f3;
+  --brand-hover: #396c2c;
+  --accent: #ee5b00;
+  --accent-soft: #ffe6d6;
+  --green: #396c2c;
+  --green-soft: #d9f0d3;
+  --focus: #ee5b00;
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --paper: #120d24;
-  --paper-raised: #1a152d;
-  --paper-sunk: #221d36;
-  --ink: #f3eef4;
-  --ink-soft: #d0cbda;
-  --ink-faint: #a6a0b9;
-  --line: #332f48;
-  --line-strong: #7a7596;
-  --accent: #fb6107;
-  --on-accent: #231942;
-  --accent-soft: #3a2028;
-  --lavender: #bbaade;
-  --lavender-soft: #312941;
-  --focus: #fb6107;
+  --paper: #091407;
+  --paper-raised: #0f1c0c;
+  --paper-sunk: #0a3200;
+  --ink: #f2f0e7;
+  --ink-soft: #cccdbf;
+  --ink-faint: #a5ab96;
+  --line: #2c3a29;
+  --line-strong: #768672;
+  --brand: #90d280;
+  --on-brand: #0a3200;
+  --brand-hover: #b3e3a5;
+  --accent: #f7721a;
+  --accent-soft: #422518;
+  --green: #90d280;
+  --green-soft: #223a1c;
+  --focus: #f7721a;
   color-scheme: dark;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #120d24;
-    --paper-raised: #1a152d;
-    --paper-sunk: #221d36;
-    --ink: #f3eef4;
-    --ink-soft: #d0cbda;
-    --ink-faint: #a6a0b9;
-    --line: #332f48;
-    --line-strong: #7a7596;
-    --accent: #fb6107;
-    --on-accent: #231942;
-    --accent-soft: #3a2028;
-    --lavender: #bbaade;
-    --lavender-soft: #312941;
-    --focus: #fb6107;
+    --paper: #091407;
+    --paper-raised: #0f1c0c;
+    --paper-sunk: #0a3200;
+    --ink: #f2f0e7;
+    --ink-soft: #cccdbf;
+    --ink-faint: #a5ab96;
+    --line: #2c3a29;
+    --line-strong: #768672;
+    --brand: #90d280;
+    --on-brand: #0a3200;
+    --brand-hover: #b3e3a5;
+    --accent: #f7721a;
+    --accent-soft: #422518;
+    --green: #90d280;
+    --green-soft: #223a1c;
+    --focus: #f7721a;
     color-scheme: dark;
   }
-}
-
-.night {
-  --paper: #231942;
-  --paper-raised: #2f2550;
-  --paper-sunk: #2f2550;
-  --ink: #f3eef4;
-  --ink-soft: #d0cbda;
-  --ink-faint: #ada6c2;
-  --line: #3e375a;
-  --line-strong: #807b9f;
-  --accent: #fb6107;
-  --on-accent: #231942;
-  --accent-soft: #3a2028;
-  --lavender: #bbaade;
-  --lavender-soft: #3a3058;
-  --focus: #fb6107;
-  color-scheme: dark;
 }
 
 @theme inline {
@@ -85,15 +73,17 @@
   --color-ink-faint: var(--ink-faint);
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
+  --color-brand: var(--brand);
+  --color-on-brand: var(--on-brand);
+  --color-brand-hover: var(--brand-hover);
   --color-accent: var(--accent);
-  --color-on-accent: var(--on-accent);
   --color-accent-soft: var(--accent-soft);
-  --color-lavender: var(--lavender);
-  --color-lavender-soft: var(--lavender-soft);
+  --color-green: var(--green);
+  --color-green-soft: var(--green-soft);
 
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
-  --font-serif: var(--font-instrument), "Iowan Old Style", Georgia, serif;
+  --font-serif: var(--font-newsreader), "Iowan Old Style", Georgia, serif;
 
   --text-display: clamp(2.75rem, 1.2rem + 6.6vw, 7.75rem);
   --text-hero: clamp(2.875rem, 1rem + 6.8vw, 7.25rem);
@@ -124,8 +114,8 @@
   }
 
   ::selection {
-    background: var(--accent);
-    color: var(--on-accent);
+    background: var(--green-soft);
+    color: var(--ink);
   }
 
   :focus-visible {
@@ -150,6 +140,11 @@
 }
 
 @layer components {
+  .font-serif {
+    font-weight: 500;
+    font-optical-sizing: auto;
+  }
+
   .shell {
     width: 100%;
     max-width: 88rem;
@@ -170,10 +165,10 @@
   }
 
   .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
     color: var(--ink-faint);
   }
 

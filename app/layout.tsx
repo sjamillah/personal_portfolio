@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 import { profile } from "@/content/profile";
 import { brand } from "@/lib/brand";
 import { SiteFooter } from "@/components/site-footer";
@@ -9,11 +9,11 @@ import "./globals.css";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
-const instrument = Instrument_Serif({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  weight: "400",
   style: ["normal", "italic"],
-  variable: "--font-instrument",
+  axes: ["opsz"],
+  variable: "--font-newsreader",
   display: "swap",
 });
 
@@ -47,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geist.variable} ${geistMono.variable} ${instrument.variable}`}
+      className={`${geist.variable} ${geistMono.variable} ${newsreader.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

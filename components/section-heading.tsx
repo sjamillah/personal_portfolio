@@ -14,7 +14,7 @@ export function SectionHeading({ index, label, id, children, aside }: SectionHea
     <Reveal className="grid gap-5 border-t border-ink pt-5 lg:grid-cols-12 lg:items-end lg:gap-12">
       <div className="lg:col-span-7">
         <p className="eyebrow flex gap-3">
-          <span className="text-lavender">{index}</span>
+          <span className="text-green">{index}</span>
           <span>{label}</span>
         </p>
         <h2 id={id} className="mt-4 font-serif text-title tracking-tight text-balance">

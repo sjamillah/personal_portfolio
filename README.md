@@ -36,24 +36,30 @@ entry and homepage row are generated from it. Architecture diagrams are
 `DiagramSpec` objects: boxes positioned on a fixed canvas, and edges drawn as
 polylines between them, so a diagram can be adjusted without design tools.
 
-## Colour system
+## Visual system
 
-Violet is the neutral, orange is the only accent, lavender is the structure. Every
-violet shares one hue (that of `#231942`), so blues and pinks never drift apart, and
-the neutrals carry a trace of warmth so they sit with the orange and the portrait.
+**Colour.** Forest green and orange, tuned to the portrait: the green family
+shares the hue of `#0A3200` (the jacket), the warm sand band echoes the studio
+backdrop, and orange is the single accent.
 
 | Token | Light | Dark | Use it for |
 |---|---|---|---|
-| `paper` / `paper-raised` / `paper-sunk` | `#FAF5F7` / `#FFFFFF` / `#F1ECF2` | `#120D24` / `#1A152D` / `#221D36` | Page, cards, section bands |
-| `ink` / `ink-soft` / `ink-faint` | `#231942` / `#484168` / `#655F82` | `#F3EEF4` / `#D0CBDA` / `#A6A0B9` | Headings, body, metadata |
-| `line` / `line-strong` | `#DED8E1` / `#807B9C` | `#332F48` / `#7A7596` | Dividers / control borders (3:1) |
-| `accent` + `on-accent` | `#EE5702` + `#231942` | `#FB6107` + `#231942` | Buttons, awards, large orange type, marks, focus |
-| `lavender` / `lavender-soft` | `#6B578F` / `#EEE6F1` | `#BBAADE` / `#312941` | Section numbers, list markers, tags, diagram boxes |
+| `paper` / `paper-sunk` | `#F9F8F3` / `#F8F0E2` | `#091407` / `#0A3200` | Page / the hero, experience and contact bands |
+| `ink` / `ink-soft` / `ink-faint` | `#0A3200` / `#424F3F` / `#5F6A5C` | `#F2F0E7` / `#CCCDBF` / `#A5AB96` | Headings, body, metadata |
+| `brand` + `on-brand` | `#0A3200` + `#F9F8F3` | `#90D280` + `#0A3200` | Buttons and the monogram |
+| `accent` | `#EE5B00` | `#F7721A` | The headline italic, stars, markers, focus. Large type and graphics only |
+| `green` | `#396C2C` | `#90D280` | Numbering and small structural accents |
+| `line` / `line-strong` | `#DADACF` / `#758272` | `#2C3A29` / `#768672` | Hairlines / control borders (3:1) |
 
-There is one orange per theme. In light mode it passes 3:1 on every surface, so it is
-used for large type, fills and graphics, never for small text. Orange means "act" or
-"this is proof"; anything else is lavender. `.night` is the violet `#231942` scope used
-by the hero cover, the contact block, the footer and the monogram, in both themes.
+Green fills, orange marks. Text never sits on an orange fill, so buttons are green
+and orange is reserved for emphasis. Every pair meets WCAG AA; orange meets 3:1
+on every surface.
+
+**Type.** Newsreader (an editorial serif designed for screens) for headings,
+Geist for text and interface, and Geist Mono only inside architecture diagrams.
+
+**Layout.** Open typography over components: hairline rules and whitespace
+instead of cards, plain lists instead of pills.
 
 ## Accessibility
 
