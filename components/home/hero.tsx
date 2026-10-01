@@ -1,5 +1,5 @@
 import Image from "next/image";
-import portrait from "@/assets/jamillah.jpg";
+import portrait from "@/assets/jamillah-s.jpg";
 import { profile, proof } from "@/content/profile";
 import { ArrowDown, ArrowRight, ArrowUpRight } from "@/components/icons";
 
