@@ -1,6 +1,6 @@
 export const profile = {
   name: "Jamillah Ssozi",
-  title: "Software Engineer | Backend, Full-Stack & AI",
+  title: "Software Engineer | Full-Stack, Cloud & AI",
   location: "Kigali, Rwanda",
   email: "ssozijamillah@gmail.com",
   siteUrl: "https://jamillah-ssozi.netlify.app",
@@ -12,7 +12,7 @@ export const profile = {
   intro:
     "I develop and ship complete web and mobile applications across backend, frontend and cloud, with Python, TypeScript and AWS at the core and machine learning where it earns its place.",
   description:
-    "Jamillah Ssozi is a software engineer working across Python backend systems, full-stack web and mobile applications, AI/ML, cloud deployment and accessible product engineering.",
+    "Jamillah Ssozi is a full-stack software engineer who builds web and mobile applications in Python and TypeScript and deploys them on AWS, adding machine learning where it helps and accessibility from the first screen.",
   links: {
     github: "https://github.com/sjamillah",
     linkedin: "https://www.linkedin.com/in/jamillah-ssozi",

@@ -43,7 +43,7 @@ export default async function OpengraphImage() {
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", fontSize: 28, borderTop: `1px solid ${brand.light.line}`, paddingTop: 24 }}>
           <span>{profile.name}</span>
-          <span style={{ color: brand.light.inkFaint }}>Backend · Full-stack · Cloud · AI/ML · Accessibility</span>
+          <span style={{ color: brand.light.inkFaint }}>{profile.siteUrl.replace("https://", "")}</span>
         </div>
       </div>
     ),

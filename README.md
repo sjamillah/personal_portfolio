@@ -1,6 +1,6 @@
 # Jamillah Ssozi — Portfolio
 
-Personal portfolio for Jamillah Ssozi, Software Engineer (Backend, Full-Stack & AI).
+Personal portfolio for Jamillah Ssozi, Software Engineer (Full-Stack, Cloud & AI).
 Built with Next.js (App Router), TypeScript and Tailwind CSS. Deployed at
 https://jamillah-ssozi.netlify.app.
 
